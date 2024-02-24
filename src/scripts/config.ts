@@ -13,66 +13,6 @@ export default {
   },
   collections: [
     {
-      name: "project",
-      label: "Projects",
-      label_singular: "Project",
-      folder: "src/content/projects/",
-      format: "frontmatter",
-      create: true,
-      identifier_field: "title",
-      summary: "{{title}} ({{date | date('MMM DD, YYYY')}})",
-      summary_fields: ["title", "date", "tag"],
-      sortable_fields: {
-        fields: ["title", "date"],
-        default: {
-          field: "date",
-          direction: "Descending",
-        },
-      },
-      editor: {
-        preview: false,
-        frame: false,
-      },
-      fields: [
-        {
-          name: "tag",
-          label: "Tags",
-          multiple: true,
-          widget: "relation",
-          collection: "settings",
-          max: 2,
-          file: "project",
-          search_fields: ["project_tags.*"],
-          display_fields: ["project_tags.*"],
-          value_field: "project_tags.*",
-        },
-        {
-          name: "title",
-          label: "Title",
-          widget: "string",
-        },
-        {
-          name: "image",
-          label: "Image",
-          widget: "image",
-          required: false,
-        },
-        {
-          name: "date",
-          label: "Publish Date",
-          widget: "datetime",
-          format: "yyyy-MM-dd",
-          date_format: "yyyy-MM-dd",
-          time_format: false,
-        },
-        {
-          name: "body",
-          label: "Body",
-          widget: "markdown",
-        },
-      ],
-    },
-    {
       name: "blog",
       label: "Articles",
       label_singular: "Article",
