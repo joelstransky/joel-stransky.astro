@@ -8,11 +8,6 @@ import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://joelstranky.netlify.app",
-  image: {
-    service: squooshImageService()
-  },
-  integrations: [tailwind(), sitemap(), robots(), mdx()],
   output: "server",
   adapter: netlify()
 });
