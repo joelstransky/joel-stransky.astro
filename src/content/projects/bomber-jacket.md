@@ -1,6 +1,6 @@
 ---
 title: Bomber Jacket
-image: assets/qrxzmsq5kznpzmlhhopg-1-973ox.jpg
+image: assets/griffon.jpg
 date: 2023-09-28
 tag:
   - Branding

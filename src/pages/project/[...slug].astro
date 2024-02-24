@@ -4,7 +4,7 @@ import Layout from '../../layouts/Layout.astro';
 import { getEntry,getCollection } from "astro:content";
 
 const projectEntries = await getCollection("projects");
-const projects = projectEntries.sort((a,b)=>{return b.data.date - a.data.date});
+const projects = projectEntries.sort((a,b)=>{return b.data.date.getTime() - a.data.date.getTime()});
 
 const { slug } = Astro.params;
 
@@ -18,7 +18,7 @@ if (entry === undefined) {
   return Astro.redirect("/404");
 }
 
-let previous = null, next = null
+let previous, next
 
 const currentIndex = projects.findIndex(entry=>entry.slug===slug)
 

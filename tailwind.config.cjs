@@ -6,7 +6,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        mono: ["Inconsolata", ...defaultTheme.fontFamily.serif],
+        mono: ["Quicksand", ...defaultTheme.fontFamily.serif],
       },
     },
   },
