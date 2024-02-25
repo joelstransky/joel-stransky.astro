@@ -143,46 +143,7 @@ export default {
             },
           ],
         },
-        {
-          name: "footer",
-          label: "Footer",
-          file: "src/content/settings/footer.json",
-          fields: [
-            {
-              name: "socials",
-              label: "Socials",
-              label_singular: "Social",
-              widget: "list",
-              fields: [
-                {
-                  name: "name",
-                  label: "Name",
-                  widget: "string",
-                },
-                {
-                  name: "link",
-                  label: "Link",
-                  widget: "string",
-                },
-                {
-                  name: "target",
-                  label: "Target",
-                  widget: "select",
-                  options: [
-                    {
-                      label: "Same window",
-                      value: "",
-                    },
-                    {
-                      label: "New tab",
-                      value: "_blank",
-                    },
-                  ],
-                },
-              ],
-            },
-          ],
-        },
+        
       ],
     },
   ],

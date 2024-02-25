@@ -49,19 +49,19 @@ const { Content } = await entry.render();
         </div>
       </div>
       <div class="mt-0 flex items-center justify-between space-between gap-6 w-full mx-auto max-w-lg mb-24 flex-col md:flex-row">
-        {previous ? <a href={`/article/${previous.slug}`} class="text-xs no-underline cursor-pointer font-bold leading-5 inline-block uppercase tracking-[0.12em] relative">
+        {previous && <a href={`/article/${previous.slug}`} class="text-xs no-underline cursor-pointer font-bold leading-5 inline-block uppercase tracking-[0.12em] relative">
           <span class="relative block transition duration-500 ease-in-out transform rounded hover:scale-105">
             <Image width={244} class="relative block object-contain object-center w-full h-full max-w-[260px] h-auto inline-block align-top max-h-[260px]" loading="lazy" alt="" src={previous.data.image}>
           </span>
           <span class="absolute max-w-[100px] -translate-y-2/4 -translate-x-full left-[30px] top-2/4 bg-white py-1 px-2">Previous Project</span>
-        </a>:<span />}
+        </a>}
         {
-          next ? <a href={`/article/${next.slug}`} class="text-xs no-underline cursor-pointer font-bold leading-5 inline-block uppercase tracking-[0.12em] relative">
+          next && <a href={`/article/${next.slug}`} class="text-xs no-underline cursor-pointer font-bold leading-5 inline-block uppercase tracking-[0.12em] relative">
           <span class="relative block transition duration-500 ease-in-out transform rounded hover:scale-105">
             <Image width={244} class="relative block object-contain object-center w-full h-full max-w-[260px] h-auto inline-block align-top w-auto max-h-[260px]" loading="lazy" alt="" src={next.data.image}>
           </span>
           <span class="absolute max-w-[100px] -translate-y-2/4 translate-x-full left-[inherit] right-[30px] top-2/4  bg-white py-1 px-2">Next Project</span>
-        </a>:<span />
+        </a>
       }
       </div>
     </div>

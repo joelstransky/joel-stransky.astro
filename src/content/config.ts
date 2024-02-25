@@ -1,6 +1,5 @@
 import { defineCollection, z } from "astro:content";
 
-
 const articlesCollection = defineCollection({
   type: "content",
   schema: ({ image }) =>
@@ -28,9 +27,8 @@ const settings = defineCollection({
             target: z.string(),
             name: z.string(),
             link: z.string(),
-          }),
+          })
         )
-        .optional(),
     }),
 });
 
