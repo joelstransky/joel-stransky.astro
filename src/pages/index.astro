@@ -43,9 +43,9 @@ const articles = allArticles.sort((a, b) => {
       if (column === 1) {
         const listElms = Array.prototype.slice.call(
           portfolio && portfolio.querySelectorAll("figure"),
-          0,
+          0
         );
-        listElms.forEach((listElm) => {
+        listElms.forEach((listElm: { style: { marginTop: string; }; }) => {
           listElm.style.marginTop = "";
         });
 
@@ -54,14 +54,14 @@ const articles = allArticles.sort((a, b) => {
 
       const listElms = Array.prototype.slice.call(
         portfolio && portfolio.querySelectorAll("figure"),
-        0,
+        0
       );
 
       if (listElms.length === 0) {
         return false;
       }
 
-      listElms.forEach((listElm, index) => {
+      listElms.forEach((listElm: { style: { marginTop: string; }; getBoundingClientRect: () => { (): any; new(): any; top: any; }; }, index: number) => {
         listElm.style.marginTop = "";
 
         if (column > index) {
@@ -84,7 +84,7 @@ const articles = allArticles.sort((a, b) => {
       });
     };
 
-    const getHeightAndMarginBottom = (elm) => {
+    const getHeightAndMarginBottom = (elm: Element) => {
       const height = elm.getBoundingClientRect().height;
       const styles = getComputedStyle(elm);
       const bottom = parseFloat(styles.marginBottom);

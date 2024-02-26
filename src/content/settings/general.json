@@ -5,5 +5,13 @@
   "keywords": ["astro", "template"],
   "logo": "assets/m.png",
   "favicon": "assets/m_w.png",
-  "url": "/"
+  "url": "/",
+  "socials": [
+    {
+      "target": "_blank",
+      "name": "&#120143;",
+      "link": "httpS://twitter.com/joelstransky"
+    }
+    
+  ]
 }

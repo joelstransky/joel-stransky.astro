@@ -1,3 +1,11 @@
 {
-  "project_tags": ["Branding", "Photography", "Design"]
+  "project_tags": ["Branding", "Photography", "Design"],
+  "socials": [
+    {
+      "target": "_blank",
+      "name": "&#120143;",
+      "link": "httpS://twitter.com/joelstransky"
+    }
+    
+  ]
 }
