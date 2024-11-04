@@ -8,5 +8,10 @@ import netlify from "@astrojs/netlify";
 export default defineConfig({
   integrations: [react(), tailwind()],
   output: "server",
-  adapter: netlify()
+  adapter: netlify(),
+  server: {
+    routes: {
+      "/.well-known/atproto-did": "./src/pages/.well-known/atproto-did.astro",
+    },
+  },
 });
