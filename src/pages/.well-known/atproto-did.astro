@@ -1,7 +1,10 @@
 
 ---
 // Set the content-type to text/plain
-response.headers.set('Content-Type', 'text/plain');
+export const GET = ({ response }) => {
+  response.headers.set('Content-Type', 'text/plain');
+  return response;
+};
 
 // Define your DID here
 const did = 'did:plc:4nl4fp56lllq4cjgkf73rfai';
