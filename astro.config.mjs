@@ -3,10 +3,12 @@ import react from "@astrojs/react";
 import tailwind from "@astrojs/tailwind";
 
 import netlify from "@astrojs/netlify";
+import mdx from "@astrojs/mdx";
+import embeds from 'astro-embed/integration';
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [react(), tailwind()],
+  integrations: [react(), tailwind(), embeds(), mdx()],
   output: "server",
   adapter: netlify(),
   server: {
