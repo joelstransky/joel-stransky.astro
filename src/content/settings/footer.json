@@ -2,8 +2,13 @@
   "socials": [
     {
       "target": "_blank",
-      "name": "&#120143;",
-      "link": "httpS://twitter.com/joelstransky"
+      "name": "bluesky",
+      "link": "https://bsky.app/profile/joelstransky.bsky.social"
+    },
+    {
+      "target": "_blank",
+      "name": "LinkedIn",
+      "link": "https://www.linkedin.com/in/joelstransky/"
     }
     
   ]
