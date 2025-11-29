@@ -9,7 +9,7 @@ import embeds from 'astro-embed/integration';
 // https://astro.build/config
 export default defineConfig({
   integrations: [react(), tailwind(), embeds(), mdx()],
-  output: "server",
+  output: "static",
   adapter: netlify(),
   server: {
     routes: {

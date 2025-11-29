@@ -1,14 +1,17 @@
 ---
 title: "Quiet, Piggy"
+slug: "quiet-piggy"
 date: 2024-03-20
 image: ../../../assets/quiet-piggy/Quiet-Piggy_1.jpg
 tag: ["React", "Children's Book", "App"]
 layoutType: "app"
+hidden: true
 ---
 
 import { BookViewer } from '../../../components/react/BookViewer';
+import { AmazonBookCTA } from '../../../components/react/AmazonBookCTA';
 import page1 from '../../../assets/quiet-piggy/Quiet-Piggy_1.jpg';
-
+import page2 from '../../../assets/quiet-piggy/Quiet-Piggy_2.jpg';
 import page3 from '../../../assets/quiet-piggy/Quiet-Piggy_3.jpg';
 import page4 from '../../../assets/quiet-piggy/Quiet-Piggy_4.jpg';
 import page5 from '../../../assets/quiet-piggy/Quiet-Piggy_5.jpg';
@@ -35,6 +38,7 @@ import page25 from '../../../assets/quiet-piggy/Quiet-Piggy_25.jpg';
 
 <BookViewer client:only="react" pageAspectRatio={1} pages={[
   { src: page1.src, alt: "Quiet, Piggy - Page 1" },
+  { src: page2.src, alt: "Quiet, Piggy - Page 2" },
   { src: page3.src, alt: "Quiet, Piggy - Page 3" },
   { src: page4.src, alt: "Quiet, Piggy - Page 4" },
   { src: page5.src, alt: "Quiet, Piggy - Page 5" },
@@ -59,3 +63,27 @@ import page25 from '../../../assets/quiet-piggy/Quiet-Piggy_25.jpg';
   { src: page24.src, alt: "Quiet, Piggy - Page 24" },
   { src: page25.src, alt: "Quiet, Piggy - Page 25" },
 ]} />
+
+<AmazonBookCTA 
+  link="#"
+  coverImage={page1.src}
+/>
+
+<div className="max-w-3xl mx-auto px-6 py-12 prose prose-zinc text-lg leading-relaxed">
+
+### The Project
+
+I honestly just wanted to see what Gemini 3 could do. Could it act as a partner in a complete creative process?
+
+The spark came from a real place. A public official made a statement that hurt a lot of people, and I felt a need to respond. But I also know how side projects go—if it feels like work, it stalls. It had to be effortless, or it wasn't getting done.
+
+This book is the result. A quick, heartfelt response brought to life by new technology.
+
+### AI & The Industry
+
+I'm acutely aware of the disruption AI is causing in the creative industry—it affects me too.
+
+I want to be clear: this wasn't a gig someone lost. This was a personal project with a binary outcome—either I finished it in a weekend, or it wouldn't exist at all. I felt the message was important enough to get out there, and my hope is that the optics of this response might still achieve its desired effect.
+
+</div>
+

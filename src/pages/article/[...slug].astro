@@ -3,23 +3,22 @@ import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
 import { getEntry, getCollection } from "astro:content";
 
+export async function getStaticPaths() {
+  const blogEntries = await getCollection("articles");
+  return blogEntries.map(entry => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
 const blogEntries = await getCollection("articles");
-const articles = blogEntries.sort((a,b)=>{return b.data.date.getTime() - a.data.date.getTime()});
-
-const { slug } = Astro.params;
-
-if (slug === undefined) {
-  throw new Error("Slug is required");
-}
-
-const entry = await getEntry("articles", slug);
-
-if (entry === undefined) {
-  return Astro.redirect("/404");
-}
+const articles = blogEntries
+  .filter(e => !e.data.hidden)
+  .sort((a,b)=>{return b.data.date.getTime() - a.data.date.getTime()});
 
 let previous:any, next:any;
-const currentIndex = articles.findIndex(entry=>entry.slug===slug)
+const currentIndex = articles.findIndex(e=>e.slug===entry.slug)
 
 previous = currentIndex > 0 && articles[currentIndex-1];
 // if(currentIndex > 0) {

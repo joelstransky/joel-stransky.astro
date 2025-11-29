@@ -6,9 +6,11 @@ import Card from "../components/Card.astro";
 import Hero from "../components/Hero.astro";
 
 const allArticles = await getCollection("articles");
-const articles = allArticles.sort((a, b) => {
-  return b.data.date.getTime() - a.data.date.getTime();
-});
+const articles = allArticles
+  .filter((article) => !article.data.hidden)
+  .sort((a, b) => {
+    return b.data.date.getTime() - a.data.date.getTime();
+  });
 ---
 
 <Layout title="Joel Stransky: Sr. Front End">
