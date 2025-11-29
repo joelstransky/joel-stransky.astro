@@ -8,7 +8,7 @@ layoutType: "app"
 
 import { BookViewer } from '../../../components/react/BookViewer';
 import page1 from '../../../assets/quiet-piggy/Quiet-Piggy_1.jpg';
-import page2 from '../../../assets/quiet-piggy/Quiet-Piggy_2.jpg';
+
 import page3 from '../../../assets/quiet-piggy/Quiet-Piggy_3.jpg';
 import page4 from '../../../assets/quiet-piggy/Quiet-Piggy_4.jpg';
 import page5 from '../../../assets/quiet-piggy/Quiet-Piggy_5.jpg';
@@ -33,9 +33,8 @@ import page23 from '../../../assets/quiet-piggy/Quiet-Piggy_23.jpg';
 import page24 from '../../../assets/quiet-piggy/Quiet-Piggy_24.jpg';
 import page25 from '../../../assets/quiet-piggy/Quiet-Piggy_25.jpg';
 
-<BookViewer client:only="react" pages={[
+<BookViewer client:only="react" pageAspectRatio={1} pages={[
   { src: page1.src, alt: "Quiet, Piggy - Page 1" },
-  { src: page2.src, alt: "Quiet, Piggy - Page 2" },
   { src: page3.src, alt: "Quiet, Piggy - Page 3" },
   { src: page4.src, alt: "Quiet, Piggy - Page 4" },
   { src: page5.src, alt: "Quiet, Piggy - Page 5" },
