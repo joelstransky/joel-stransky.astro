@@ -8,6 +8,7 @@ const articlesCollection = defineCollection({
       image: image(),
       date: z.date(),
       tag: z.array(z.string()),
+      layoutType: z.enum(['article', 'app', 'full-width']).optional().default('article'),
     }),
 });
 
