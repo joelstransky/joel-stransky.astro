@@ -171,7 +171,7 @@ export const BookViewer: React.FC<BookViewerProps> = ({ pages, pageAspectRatio =
          
          <span className="flex items-center text-white/80 font-mono text-sm bg-black/50 px-4 py-2 rounded-full backdrop-blur-sm">
             {/* Showing page numbers is tricky with spreads. Just show Leaf index? */}
-             Spread {currentLeafIndex} / {totalLeaves}
+             Page {currentLeafIndex} / {totalLeaves}
          </span>
 
          <button 
