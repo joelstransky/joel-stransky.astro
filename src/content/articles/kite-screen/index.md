@@ -1,7 +1,7 @@
 ---
 title: Kite Screen
 date: 2019-12-05
-description: "A browser extenstion for picture in picture video
+description: "A browser extenstion for picture in picture video"
 image: 'assets/kite-screen440x280.png' # Add image post (optional)
 tag: [chrome, extension, picture-in-picture, html, css, javascript] # add tag
 ---
