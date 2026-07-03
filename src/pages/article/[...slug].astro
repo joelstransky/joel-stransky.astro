@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
-import { getEntry, getCollection } from "astro:content";
+import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection("articles");
@@ -21,11 +21,8 @@ let previous:any, next:any;
 const currentIndex = articles.findIndex(e=>e.slug===entry.slug)
 
 previous = currentIndex > 0 && articles[currentIndex-1];
-// if(currentIndex > 0) {
-//     previous = articles[currentIndex-1]
-// }
 
-if(currentIndex < articles.length) {
+if(currentIndex < articles.length - 1) {
     next = articles[currentIndex+1]
 }
 
@@ -33,42 +30,56 @@ const { Content } = await entry.render();
 ---
 
 <Layout title={entry.data.title}>
-  {entry.data.layoutType === 'app' ? (
-    <div class="w-full min-h-screen bg-zinc-100">
-      <Content />
-    </div>
-  ) : (
-  <div class="relative">
-    <div class="mx-auto px-8 md:max-w-7xl">
-      <div class="relative w-full mt-5 mb-10 mx-auto max-w-3xl">
-        <Image width="1000" src={entry.data.image} alt={entry.data.title} class="h-auto inline-block align-top w-full">
+  <div class="relative bg-surface-primary min-h-screen transition-colors duration-300">
+    <div class="mx-auto px-6 md:px-24 max-w-4xl py-12">
+      <!-- Back Link -->
+      <a href="/" class="inline-flex items-center gap-2 text-sm font-sans font-bold text-accent-primary hover:text-foreground-primary transition-colors mb-8">
+        &larr; Back to Portfolio
+      </a>
+
+      <!-- Featured Image -->
+      <div class="relative w-full rounded border border-border-subtle bg-surface-secondary overflow-hidden aspect-[16/9]">
+        <Image 
+          width={1000} 
+          height={562}
+          src={entry.data.image} 
+          alt={entry.data.title} 
+          class="object-cover w-full h-full"
+        />
       </div>
-      <div class="relative w-full mt-12 mb-16 mx-auto max-w-3xl">
-        <h4 class="text-3xl font-normal uppercase tracking-[0.08em] text-center">
-          <strong class="font-semibold m-0 p-0">{entry.data.title}</strong>
-        </h4>
-        <h6 class="text-base font-normal normal-case opacity-80 text-center mt-2 mb-8">for {entry.data.tag.join(', ').replace(/,(?!.*,)/gmi, ' &')}</h6>
-        <div class="prose-zinc text-xl">
-          <Content />
-        </div>
+
+      <!-- Article Header -->
+      <div class="relative w-full mt-10 mb-8">
+        <p class="font-sans text-xs md:text-sm tracking-widest text-accent-primary font-medium uppercase mb-2">
+          {entry.data.tag.map((t: string) => t.toUpperCase()).join(' • ')}
+        </p>
+        <h1 class="font-serif font-bold text-3xl md:text-5xl text-foreground-primary leading-tight mt-0 mb-4">
+          {entry.data.title}
+        </h1>
+        <div class="h-[1px] w-full bg-border-subtle transition-colors duration-300 my-6"></div>
       </div>
-      <div class="mt-0 flex items-center justify-between space-between gap-6 w-full mx-auto max-w-lg mb-24 flex-col md:flex-row">
-        {previous && <a href={`/article/${previous.slug}`} class="text-xs no-underline cursor-pointer font-bold leading-5 inline-block uppercase tracking-[0.12em] relative">
-          <span class="relative block transition duration-500 ease-in-out transform rounded hover:scale-105">
-            <Image width={244} class="relative block object-contain object-center w-full h-full max-w-[260px] h-auto inline-block align-top max-h-[260px]" loading="lazy" alt="" src={previous.data.image}>
-          </span>
-          <span class="absolute max-w-[100px] -translate-y-2/4 -translate-x-full left-[30px] top-2/4 bg-white py-1 px-2">Previous Project</span>
-        </a>}
-        {
-          next && <a href={`/article/${next.slug}`} class="text-xs no-underline cursor-pointer font-bold leading-5 inline-block uppercase tracking-[0.12em] relative">
-          <span class="relative block transition duration-500 ease-in-out transform rounded hover:scale-105">
-            <Image width={244} class="relative block object-contain object-center w-full h-full max-w-[260px] h-auto inline-block align-top w-auto max-h-[260px]" loading="lazy" alt="" src={next.data.image}>
-          </span>
-          <span class="absolute max-w-[100px] -translate-y-2/4 translate-x-full left-[inherit] right-[30px] top-2/4  bg-white py-1 px-2">Next Project</span>
-        </a>
-      }
+
+      <!-- MDX Content -->
+      <div class="prose dark:prose-invert max-w-none text-base md:text-lg text-foreground-secondary leading-relaxed font-sans mb-12">
+        <Content />
+      </div>
+
+      <!-- Navigation Row -->
+      <div class="h-[1px] w-full bg-border-subtle transition-colors duration-300 my-12"></div>
+      <div class="flex justify-between items-center w-full font-sans text-sm text-foreground-secondary pb-12">
+        {previous ? (
+          <a href={`/article/${previous.slug}`} class="flex flex-col items-start gap-1 group no-underline">
+            <span class="text-xs uppercase tracking-wider text-foreground-muted group-hover:text-accent-primary transition-colors">&larr; Previous Project</span>
+            <span class="font-serif font-bold text-base md:text-lg text-foreground-primary group-hover:text-accent-primary transition-colors leading-tight">{previous.data.title}</span>
+          </a>
+        ) : <div></div>}
+        {next ? (
+          <a href={`/article/${next.slug}`} class="flex flex-col items-end gap-1 group no-underline">
+            <span class="text-xs uppercase tracking-wider text-foreground-muted group-hover:text-accent-primary transition-colors">Next Project &rarr;</span>
+            <span class="font-serif font-bold text-base md:text-lg text-foreground-primary group-hover:text-accent-primary transition-colors leading-tight">{next.data.title}</span>
+          </a>
+        ) : <div></div>}
       </div>
     </div>
   </div>
-  )}
 </Layout>
