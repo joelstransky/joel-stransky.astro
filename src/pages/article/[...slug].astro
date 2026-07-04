@@ -38,7 +38,7 @@ const { Content } = await entry.render();
       </a>
 
       <!-- Featured Image -->
-      <div class="relative w-full rounded border border-border-subtle bg-surface-secondary overflow-hidden aspect-[16/9]">
+      <div class="relative w-full rounded border border-border-subtle bg-surface-secondary overflow-hidden aspect-[16/9] featured-image">
         <Image 
           width={1000} 
           height={562}
@@ -82,4 +82,145 @@ const { Content } = await entry.render();
       </div>
     </div>
   </div>
+
+  <!-- Lightbox Overlay -->
+  <div id="lightbox" class="fixed inset-0 z-50 flex items-center justify-center bg-black/90 opacity-0 pointer-events-none transition-opacity duration-300 backdrop-blur-sm">
+    <!-- Close Button -->
+    <button id="lightbox-close" class="absolute top-4 right-4 text-white hover:text-accent-primary transition-colors p-2 z-20" aria-label="Close image view">
+      <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+    
+    <!-- Prev Arrow Button -->
+    <button id="lightbox-prev" class="absolute left-4 top-1/2 -translate-y-1/2 text-white/70 hover:text-white hover:scale-110 transition-all p-2 z-20" aria-label="Previous image">
+      <svg class="w-10 h-10 md:w-12 md:h-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+      </svg>
+    </button>
+
+    <!-- Next Arrow Button -->
+    <button id="lightbox-next" class="absolute right-4 top-1/2 -translate-y-1/2 text-white/70 hover:text-white hover:scale-110 transition-all p-2 z-20" aria-label="Next image">
+      <svg class="w-10 h-10 md:w-12 md:h-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+      </svg>
+    </button>
+
+    <div class="relative max-w-[90vw] max-h-[90vh] flex items-center justify-center p-4">
+      <img id="lightbox-img" src="" alt="" class="max-w-full max-h-[85vh] object-contain rounded shadow-2xl scale-95 transition-all duration-200 ease-out" />
+    </div>
+  </div>
+
+  <script>
+    const initLightbox = () => {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img') as HTMLImageElement;
+      const closeBtn = document.getElementById('lightbox-close');
+      const prevBtn = document.getElementById('lightbox-prev');
+      const nextBtn = document.getElementById('lightbox-next');
+      const proseImages = Array.from(document.querySelectorAll('.prose img, .featured-image img')) as HTMLImageElement[];
+
+      if (!lightbox || !lightboxImg || !closeBtn || !prevBtn || !nextBtn || proseImages.length === 0) return;
+
+      let currentIndex = 0;
+
+      // Hide navigation arrows if there is 1 or 0 images
+      if (proseImages.length <= 1) {
+        prevBtn.style.display = 'none';
+        nextBtn.style.display = 'none';
+      } else {
+        prevBtn.style.display = 'block';
+        nextBtn.style.display = 'block';
+      }
+
+      const updateImage = (index: number) => {
+        currentIndex = index;
+        const currentImg = proseImages[currentIndex];
+        
+        lightboxImg.classList.add('opacity-0', 'scale-98');
+        setTimeout(() => {
+          lightboxImg.src = currentImg.src;
+          lightboxImg.alt = currentImg.alt;
+          lightboxImg.classList.remove('opacity-0', 'scale-98');
+        }, 150);
+      };
+
+      const openLightbox = (index: number) => {
+        currentIndex = index;
+        const currentImg = proseImages[currentIndex];
+        lightboxImg.src = currentImg.src;
+        lightboxImg.alt = currentImg.alt;
+        
+        lightbox.classList.remove('opacity-0', 'pointer-events-none');
+        setTimeout(() => {
+          lightboxImg.classList.remove('scale-95');
+          lightboxImg.classList.add('scale-100');
+        }, 10);
+        document.body.style.overflow = 'hidden';
+      };
+
+      const closeLightbox = () => {
+        lightbox.classList.add('opacity-0', 'pointer-events-none');
+        lightboxImg.classList.remove('scale-100');
+        lightboxImg.classList.add('scale-95');
+        document.body.style.overflow = '';
+        setTimeout(() => {
+          lightboxImg.src = '';
+        }, 300);
+      };
+
+      const showPrev = (e?: Event) => {
+        if (e) e.stopPropagation();
+        const nextIndex = (currentIndex - 1 + proseImages.length) % proseImages.length;
+        updateImage(nextIndex);
+      };
+
+      const showNext = (e?: Event) => {
+        if (e) e.stopPropagation();
+        const nextIndex = (currentIndex + 1) % proseImages.length;
+        updateImage(nextIndex);
+      };
+
+      proseImages.forEach((img, index) => {
+        img.classList.add('cursor-zoom-in', 'transition-transform', 'duration-200', 'hover:scale-[1.01]');
+        img.addEventListener('click', () => {
+          openLightbox(index);
+        });
+      });
+
+      closeBtn.addEventListener('click', closeLightbox);
+      prevBtn.addEventListener('click', showPrev);
+      nextBtn.addEventListener('click', showNext);
+
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox || e.target === lightbox.querySelector('.relative')) {
+          closeLightbox();
+        }
+      });
+
+      const handleKeyDown = (e: KeyboardEvent) => {
+        if (lightbox.classList.contains('pointer-events-none')) return;
+        
+        if (e.key === 'Escape') {
+          closeLightbox();
+        } else if (e.key === 'ArrowLeft' && proseImages.length > 1) {
+          showPrev();
+        } else if (e.key === 'ArrowRight' && proseImages.length > 1) {
+          showNext();
+        }
+      };
+
+      window.addEventListener('keydown', handleKeyDown);
+
+      return () => {
+        window.removeEventListener('keydown', handleKeyDown);
+      };
+    };
+
+    let cleanup: (() => void) | undefined;
+    document.addEventListener('astro:page-load', () => {
+      if (cleanup) cleanup();
+      cleanup = initLightbox();
+    });
+  </script>
 </Layout>

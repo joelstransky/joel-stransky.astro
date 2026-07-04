@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 
-const { slug, title, image, tags, index, body, section } = Astro.props;
+const { slug, title, image, tags, index, body, section, isFeatured = false } = Astro.props;
 
 const borderColors = ['border-accent-tertiary', 'border-accent-primary', 'border-accent-secondary'];
 const textColors = ['text-accent-tertiary', 'text-accent-primary', 'text-accent-secondary'];
@@ -39,42 +39,43 @@ const cleanDescription = (bodyText: string) => {
 const description = cleanDescription(body || "");
 ---
 
-<figure class={`flex flex-col gap-3 md:gap-4 p-4 rounded border ${borderClass} bg-surface-secondary transition-all duration-300 hover:shadow-md hover:scale-[1.01] relative w-full`}>
+<figure class={`flex flex-col rounded border ${borderClass} transition-all duration-300 hover:shadow-md hover:scale-[1.01] relative w-full ${isFeatured ? 'bg-transparent lg:flex-row lg:items-center lg:gap-8 p-6 lg:p-8 lg:col-span-2' : 'bg-surface-secondary gap-3 md:gap-4 p-4'}`}>
   <!-- Glyph Indicator -->
-  <div class="absolute right-3 top-3 md:right-4 md:top-4 opacity-70">
-    {section === 'app' && (
-      <svg class={`w-5 h-5 ${textClass}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="3" y="3" width="18" height="18" rx="2"/>
-        <circle cx="12" cy="12" r="3" fill="currentColor"/>
-      </svg>
-    )}
-    {section === 'design' && (
-      <svg class={`w-5 h-5 ${textClass}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="12" cy="12" r="9"/>
-        <line x1="12" y1="3" x2="12" y2="21"/>
-        <line x1="3" y1="12" x2="21" y2="12"/>
-      </svg>
-    )}
-    {section === 'modeling' && (
-      <svg class={`w-5 h-5 ${textClass}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M12 2L22 12L12 22L2 12Z"/>
-        <path d="M12 8L16 12L12 16L8 12Z" fill="currentColor"/>
-      </svg>
-    )}
-  </div>
+  {!isFeatured && (
+    <div class="absolute right-3 top-3 md:right-4 md:top-4 opacity-70">
+      {section === 'app' && (
+        <svg class={`w-5 h-5 ${textClass}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="18" height="18" rx="2"/>
+          <circle cx="12" cy="12" r="3" fill="currentColor"/>
+        </svg>
+      )}
+      {section === 'design' && (
+        <svg class={`w-5 h-5 ${textClass}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="9"/>
+          <line x1="12" y1="3" x2="12" y2="21"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+        </svg>
+      )}
+      {section === 'modeling' && (
+        <svg class={`w-5 h-5 ${textClass}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2L22 12L12 22L2 12Z"/>
+          <path d="M12 8L16 12L12 16L8 12Z" fill="currentColor"/>
+        </svg>
+      )}
+    </div>
+  )}
 
-  <!-- Top Row: Thumbnail & Meta -->
-  <div class="flex gap-4 items-center">
-    <!-- Thumbnail -->
+  {isFeatured ? (
+    <!-- Horizontal Featured Card Layout -->
     <a
       href={`/article/${slug}`}
-      class="no-underline shrink-0 block overflow-hidden rounded border border-border-subtle bg-surface-primary w-[110px] sm:w-[150px] lg:w-[220px] aspect-[5/3]"
+      class="no-underline shrink-0 block overflow-hidden rounded border border-border-subtle bg-surface-primary w-full sm:w-[240px] lg:w-[420px] aspect-[5/3] order-first lg:order-2"
       aria-label={title}
     >
       <span class="relative block h-full w-full transition duration-500 ease-in-out transform hover:scale-105">
         <Image
-          width={220}
-          height={132}
+          width={420}
+          height={252}
           class="relative block object-cover w-full h-full"
           loading="lazy"
           alt={title}
@@ -83,35 +84,88 @@ const description = cleanDescription(body || "");
       </span>
     </a>
 
-    <!-- Meta Col -->
-    <div class="flex flex-col gap-1.5 flex-1 min-w-0 pr-6">
-      <h3 class="font-serif font-bold text-base sm:text-lg lg:text-xl text-foreground-primary m-0 leading-tight">
+    <div class="flex flex-col gap-4 flex-1 min-w-0 mt-4 lg:mt-0 order-last lg:order-1">
+      <div class="flex flex-col gap-2">
+        <p class={`font-sans text-[10px] sm:text-[11px] tracking-wider ${textClass} font-medium uppercase m-0 leading-none`}>
+          FEATURED CASE STUDY • {tags.map((t: string) => t.toUpperCase()).join(" • ")}
+        </p>
+        <h3 class="font-serif font-bold text-xl sm:text-2xl lg:text-3xl text-foreground-primary m-0 leading-tight">
+          <a
+            href={`/article/${slug}`}
+            class="no-underline hover:text-accent-primary transition-colors duration-300"
+            aria-label={title}
+          >
+            {title}
+          </a>
+        </h3>
+      </div>
+
+      {description && (
+        <p class="font-sans text-sm lg:text-base text-foreground-secondary leading-relaxed m-0">
+          {description}
+        </p>
+      )}
+
+      <div class="mt-2">
         <a
           href={`/article/${slug}`}
-          class="no-underline hover:text-accent-primary transition-colors duration-300"
-          aria-label={title}
+          class="inline-flex items-center justify-center px-6 py-2.5 rounded-full font-sans text-xs md:text-sm font-bold bg-[#534aff] text-white dark:bg-accent-primary dark:text-[#060414] hover:bg-opacity-90 transition-colors duration-300 no-underline shadow-sm hover:shadow"
         >
-          {title}
+          Read case study
         </a>
-      </h3>
-      <p class={`font-sans text-[9px] sm:text-[10px] tracking-wider ${textClass} font-medium uppercase m-0 leading-none`}>
-        {tags.map((t: string) => t.toUpperCase()).join(" • ")}
-      </p>
+      </div>
     </div>
-  </div>
+  ) : (
+    <!-- Original Card Layout -->
+    <div class="flex gap-4 items-center">
+      <!-- Thumbnail -->
+      <a
+        href={`/article/${slug}`}
+        class="no-underline shrink-0 block overflow-hidden rounded border border-border-subtle bg-surface-primary w-[110px] sm:w-[150px] lg:w-[220px] aspect-[5/3]"
+        aria-label={title}
+      >
+        <span class="relative block h-full w-full transition duration-500 ease-in-out transform hover:scale-105">
+          <Image
+            width={220}
+            height={132}
+            class="relative block object-cover w-full h-full"
+            loading="lazy"
+            alt={title}
+            src={image}
+          />
+        </span>
+      </a>
 
-  <!-- Bottom Row: Description & Read More -->
-  <div class="flex flex-col gap-2.5 mt-1 border-t border-border-subtle/30 pt-3">
-    {description && (
-      <p class="font-sans text-xs md:text-sm text-foreground-secondary leading-relaxed m-0">
-        {description}
-      </p>
-    )}
-    <a
-      href={`/article/${slug}`}
-      class={`font-sans text-xs md:text-sm font-bold ${textClass} hover:text-foreground-primary transition-colors duration-300 inline-flex items-center gap-1 no-underline`}
-    >
-      Read more &rarr;
-    </a>
-  </div>
+      <!-- Meta Col -->
+      <div class="flex flex-col gap-1.5 flex-1 min-w-0 pr-6">
+        <h3 class="font-serif font-bold text-base sm:text-lg lg:text-xl text-foreground-primary m-0 leading-tight">
+          <a
+            href={`/article/${slug}`}
+            class="no-underline hover:text-accent-primary transition-colors duration-300"
+            aria-label={title}
+          >
+            {title}
+          </a>
+        </h3>
+        <p class={`font-sans text-[9px] sm:text-[10px] tracking-wider ${textClass} font-medium uppercase m-0 leading-none`}>
+          {tags.map((t: string) => t.toUpperCase()).join(" • ")}
+        </p>
+      </div>
+    </div>
+
+    <!-- Bottom Row: Description & Read More -->
+    <div class="flex flex-col gap-2.5 mt-1 border-t border-border-subtle/30 pt-3">
+      {description && (
+        <p class="font-sans text-xs md:text-sm text-foreground-secondary leading-relaxed m-0">
+          {description}
+        </p>
+      )}
+      <a
+        href={`/article/${slug}`}
+        class={`font-sans text-xs md:text-sm font-bold ${textClass} hover:text-foreground-primary transition-colors duration-300 inline-flex items-center gap-1 no-underline`}
+      >
+        Read more &rarr;
+      </a>
+    </div>
+  )}
 </figure>
