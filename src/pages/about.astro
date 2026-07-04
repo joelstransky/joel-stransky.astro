@@ -3,16 +3,25 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="About - Joel Stransky">
-  <main class="flex-grow flex items-center justify-center py-20 px-6 bg-surface-primary text-foreground-primary transition-colors duration-300">
-    <div class="max-w-2xl w-full text-center">
-      <h1 class="text-4xl font-serif font-bold mb-6">About Joel Stransky</h1>
-      <div class="h-[1px] w-20 bg-accent-primary mx-auto mb-8"></div>
-      <p class="text-lg text-foreground-secondary leading-relaxed font-sans mb-6">
-        Hi, I'm Joel. I am a Creative Technologist passionate about bridge engineering, Roblox game development, complex 3D modeling, and frontend systems design.
-      </p>
-      <p class="text-lg text-foreground-secondary leading-relaxed font-sans">
-        I love finding creative solutions to technical roadblocks, sifting through source code to solve deep puzzles, and building polished, performant systems.
-      </p>
+  <main class="w-full bg-surface-primary text-foreground-primary transition-colors duration-300">
+    <div class="mx-auto px-6 md:px-24 max-w-3xl py-16 md:py-24">
+      <h1 class="font-serif font-bold text-4xl md:text-5xl text-foreground-primary tracking-tight mb-12">
+        About Joel Stransky
+      </h1>
+      
+      <div class="font-sans text-base md:text-lg text-foreground-secondary leading-relaxed space-y-8">
+        <p>
+          I am a Senior Software Engineer, UI/UX Designer, and Game Artist with over 30 years of experience developing interactive web applications. My work focuses on bridging the gap between interface design and front-end engineering architecture. I manage complex application state, design tokens, and browser-level runtime optimizations across various tech stacks, specializing in TypeScript, React, Next.js, SCSS, and monorepos.
+        </p>
+        
+        <p>
+          My background includes engineering tools, framework standards, and custom browser extension components. At Konami Gaming, I replaced a legacy interface by implementing an open-source Chromium integration framework within a Java runtime, eliminating corporate software licensing fees and enabling native extension support for debugging. At College Loan Corporation, I consolidated six disparate platforms into a unified design system using variables and components in Figma, while optimizing layout performance to move site Google Lighthouse scores from C to A ratings.
+        </p>
+        
+        <p>
+          I have also developed reusable parent-theme architectures for the University of Hawaii and contributed to the ePib framework standard for the Barnes & Noble Nook Color rollout. My graphics and 3D engineering experience spans Game Art training at Full Sail University to building real-time client-server physics orchestration using TypeScript and React within Roblox. My current focus includes implementing Model Context Protocol (MCP) servers and structuring developer automation tools.
+        </p>
+      </div>
     </div>
   </main>
 </Layout>
