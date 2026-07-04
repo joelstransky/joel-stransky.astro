@@ -20,8 +20,10 @@ const { title } = Astro.props;
     </GoogleFontsOptimizer>
     <script is:inline>
       const theme = (() => {
-        if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-          return localStorage.getItem('theme');
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; theme=`);
+        if (parts.length === 2) {
+          return parts.pop().split(';').shift();
         }
         return 'dark';
       })();
@@ -30,7 +32,7 @@ const { title } = Astro.props;
       } else {
         document.documentElement.classList.add('dark');
       }
-      window.localStorage.setItem('theme', theme);
+      document.cookie = `theme=${theme}; max-age=31536000; path=/; SameSite=Lax`;
     </script>
     <ViewTransitions />
   </head>

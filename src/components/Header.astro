@@ -75,7 +75,8 @@ const general = await getEntry('settings','general');
         
         clone.addEventListener('click', () => {
           const isDark = document.documentElement.classList.toggle('dark');
-          localStorage.setItem('theme', isDark ? 'dark' : 'light');
+          const newTheme = isDark ? 'dark' : 'light';
+          document.cookie = `theme=${newTheme}; max-age=31536000; path=/; SameSite=Lax`;
         });
       }
     });
