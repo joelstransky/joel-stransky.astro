@@ -154,6 +154,19 @@
               "fontFamily": "Playfair Display",
               "fontSize": 44,
               "fontWeight": "Bold"
+            },
+            {
+              "type": "text",
+              "id": "K0gCS",
+              "name": "Body",
+              "fill": "$foreground-secondary",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "With 30+ years of experience building performant, scalable codebases. Specialized in TypeScript, React, Next.js, agentic engineering, and frontend optimization.",
+              "textAlign": "center",
+              "fontFamily": "Geist",
+              "fontSize": 16,
+              "fontWeight": "normal"
             }
           ]
         },
@@ -190,7 +203,7 @@
                   "id": "XK8XW",
                   "name": "H2: Application Engineering",
                   "fill": "$foreground-primary",
-                  "content": "Application Engineering",
+                  "content": "Front End & Game Development",
                   "fontFamily": "Playfair Display",
                   "fontSize": 28,
                   "fontWeight": "Bold"
@@ -217,8 +230,7 @@
                       "id": "BRYD6",
                       "name": "Card: Bubble Park (Beta)",
                       "width": 558,
-                      "fill": "$surface-secondary",
-                      "stroke": "$border-subtle",
+                      "stroke": "$accent-primary",
                       "strokeWidth": 1,
                       "layout": "vertical",
                       "gap": 12,
@@ -360,7 +372,7 @@
                       "name": "Card: Kite Screen",
                       "width": 558,
                       "fill": "$surface-secondary",
-                      "stroke": "$border-subtle",
+                      "stroke": "$accent-secondary",
                       "strokeWidth": 1,
                       "layout": "vertical",
                       "gap": 12,
@@ -511,7 +523,7 @@
                       "name": "Card: UH System Title IX Portal",
                       "width": 558,
                       "fill": "$surface-secondary",
-                      "stroke": "$border-subtle",
+                      "stroke": "$accent-tertiary",
                       "strokeWidth": 1,
                       "layout": "vertical",
                       "gap": 12,
@@ -653,7 +665,7 @@
                       "name": "Card: UH Office of Human Resources",
                       "width": 558,
                       "fill": "$surface-secondary",
-                      "stroke": "$border-subtle",
+                      "stroke": "$accent-primary",
                       "strokeWidth": 1,
                       "layout": "vertical",
                       "gap": 12,
@@ -804,7 +816,7 @@
                       "name": "Card: Superb.net",
                       "width": 558,
                       "fill": "$surface-secondary",
-                      "stroke": "$border-subtle",
+                      "stroke": "$accent-secondary",
                       "strokeWidth": 1,
                       "layout": "vertical",
                       "gap": 12,
@@ -946,7 +958,7 @@
                       "name": "Card: Hopone.net",
                       "width": 558,
                       "fill": "$surface-secondary",
-                      "stroke": "$border-subtle",
+                      "stroke": "$accent-tertiary",
                       "strokeWidth": 1,
                       "layout": "vertical",
                       "gap": 12,
@@ -1097,7 +1109,7 @@
                       "name": "Card: Nook Color Kids Reader",
                       "width": 558,
                       "fill": "$surface-secondary",
-                      "stroke": "$border-subtle",
+                      "stroke": "$accent-primary",
                       "strokeWidth": 1,
                       "layout": "vertical",
                       "gap": 12,
@@ -1239,7 +1251,7 @@
                       "name": "Card: The Living Glass Conversation",
                       "width": 558,
                       "fill": "$surface-secondary",
-                      "stroke": "$border-subtle",
+                      "stroke": "$accent-secondary",
                       "strokeWidth": 1,
                       "layout": "vertical",
                       "gap": 12,
@@ -1390,7 +1402,7 @@
                       "name": "Card: Cultureplayer.com",
                       "width": 558,
                       "fill": "$surface-secondary",
-                      "stroke": "$border-subtle",
+                      "stroke": "$accent-tertiary",
                       "strokeWidth": 1,
                       "layout": "vertical",
                       "gap": 12,
@@ -1528,11 +1540,308 @@
                     },
                     {
                       "type": "frame",
+                      "id": "pOyh4",
+                      "name": "Card: Don’t Explode! by Joel Stransky",
+                      "width": 558,
+                      "fill": "$surface-secondary",
+                      "stroke": "$accent-primary",
+                      "strokeWidth": 1,
+                      "layout": "vertical",
+                      "gap": 12,
+                      "padding": 16,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "bYR4i",
+                          "name": "Top Row",
+                          "width": "fill_container",
+                          "gap": 16,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "oRFZ3",
+                              "name": "Visual Thumbnail",
+                              "width": 250,
+                              "height": 130,
+                              "fill": {
+                                "type": "image",
+                                "enabled": true,
+                                "url": "../src/assets/dont-explode/featured.png",
+                                "mode": "fill"
+                              },
+                              "cornerRadius": 4,
+                              "stroke": "$border-subtle",
+                              "strokeWidth": 1
+                            },
+                            {
+                              "type": "frame",
+                              "id": "Dng06",
+                              "name": "Meta Col",
+                              "width": "fill_container",
+                              "layout": "vertical",
+                              "gap": 6,
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "MxroO",
+                                  "name": "Title",
+                                  "fill": "$foreground-primary",
+                                  "textGrowth": "fixed-width",
+                                  "width": "fill_container",
+                                  "content": "Don’t Explode! by Joel Stransky",
+                                  "fontFamily": "Playfair Display",
+                                  "fontSize": 18,
+                                  "fontWeight": "Medium"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "u6Iqo",
+                                  "name": "Tags",
+                                  "fill": "$accent-primary",
+                                  "textGrowth": "fixed-width",
+                                  "width": "fill_container",
+                                  "content": "MAYA • UNITY • C# • PHOTOSHOP • ADMOB",
+                                  "fontFamily": "Space Grotesk",
+                                  "fontSize": 9.5,
+                                  "fontWeight": "Medium"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "w1OJ9B",
+                          "layoutPosition": "absolute",
+                          "x": 526,
+                          "y": 8,
+                          "name": "Glyph Wrapper",
+                          "width": 24,
+                          "height": 24,
+                          "layout": "none",
+                          "children": [
+                            {
+                              "type": "rectangle",
+                              "id": "KkSCT",
+                              "x": 5,
+                              "y": 5,
+                              "name": "Outer Diamond",
+                              "rotation": 45,
+                              "fill": "#00000000",
+                              "width": 14,
+                              "height": 14,
+                              "stroke": "$accent-primary",
+                              "strokeWidth": 2
+                            },
+                            {
+                              "type": "rectangle",
+                              "id": "I91Zy",
+                              "x": 9,
+                              "y": 9,
+                              "name": "Inner Diamond",
+                              "rotation": 45,
+                              "fill": "$accent-primary",
+                              "width": 6,
+                              "height": 6
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "tukqV",
+                          "name": "Bottom Row",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 6,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "yqCxb",
+                              "name": "Desc",
+                              "fill": "$foreground-secondary",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "Don't Explode is now available on the google play store. I sculpted, retopologized, UV’d, painted and coded this game from scratch.",
+                              "lineHeight": 1.4,
+                              "fontFamily": "Geist",
+                              "fontSize": 14,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "i0wvjs",
+                              "name": "Read More Link",
+                              "fill": "$accent-primary",
+                              "content": "Read more →",
+                              "fontFamily": "Geist",
+                              "fontSize": 14,
+                              "fontWeight": "Bold"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "ElGky",
+                  "name": "Card Row 6",
+                  "width": "fill_container",
+                  "gap": 24,
+                  "children": [
+                    {
+                      "type": "frame",
                       "id": "B3s0Z",
                       "name": "Grid Spacer",
                       "width": 558,
                       "height": 0,
                       "layout": "vertical"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Dy86n",
+                      "name": "Card: Announcing Don’t Explode!",
+                      "width": 558,
+                      "fill": "$surface-secondary",
+                      "stroke": "$accent-secondary",
+                      "strokeWidth": 1,
+                      "layout": "vertical",
+                      "gap": 12,
+                      "padding": 16,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "Xw75s",
+                          "name": "Top Row",
+                          "width": "fill_container",
+                          "gap": 16,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "ZbJ9H",
+                              "name": "Visual Thumbnail",
+                              "width": 250,
+                              "height": 130,
+                              "fill": {
+                                "type": "image",
+                                "enabled": true,
+                                "url": "../src/assets/dont-explode/tap-light.jpg",
+                                "mode": "fill"
+                              },
+                              "cornerRadius": 4,
+                              "stroke": "$border-subtle",
+                              "strokeWidth": 1
+                            },
+                            {
+                              "type": "frame",
+                              "id": "fk9NY",
+                              "name": "Meta Col",
+                              "width": "fill_container",
+                              "layout": "vertical",
+                              "gap": 6,
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "FNP6t",
+                                  "name": "Title",
+                                  "fill": "$foreground-primary",
+                                  "textGrowth": "fixed-width",
+                                  "width": "fill_container",
+                                  "content": "Announcing Don’t Explode!",
+                                  "fontFamily": "Playfair Display",
+                                  "fontSize": 18,
+                                  "fontWeight": "Medium"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "LDRcR",
+                                  "name": "Tags",
+                                  "fill": "$accent-secondary",
+                                  "textGrowth": "fixed-width",
+                                  "width": "fill_container",
+                                  "content": "MAYA • UNITY • C# • PHOTOSHOP",
+                                  "fontFamily": "Space Grotesk",
+                                  "fontSize": 9.5,
+                                  "fontWeight": "Medium"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "R3CAG",
+                          "layoutPosition": "absolute",
+                          "x": 526,
+                          "y": 8,
+                          "name": "Glyph Wrapper",
+                          "width": 24,
+                          "height": 24,
+                          "layout": "none",
+                          "children": [
+                            {
+                              "type": "rectangle",
+                              "id": "ObFH3",
+                              "x": 5,
+                              "y": 5,
+                              "name": "Outer Diamond",
+                              "rotation": 45,
+                              "fill": "#00000000",
+                              "width": 14,
+                              "height": 14,
+                              "stroke": "$accent-secondary",
+                              "strokeWidth": 2
+                            },
+                            {
+                              "type": "rectangle",
+                              "id": "ndC8n",
+                              "x": 9,
+                              "y": 9,
+                              "name": "Inner Diamond",
+                              "rotation": 45,
+                              "fill": "$accent-secondary",
+                              "width": 6,
+                              "height": 6
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "VcekU",
+                          "name": "Bottom Row",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 6,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "ViqXZ",
+                              "name": "Desc",
+                              "fill": "$foreground-secondary",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "My website goes a long way towards demonstrating my various passions but what might not be so clear is just how desperately I want to work in the game industry. Being a military spouse so far has prevented me from living near any game studios.",
+                              "lineHeight": 1.4,
+                              "fontFamily": "Geist",
+                              "fontSize": 14,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "fqxLi",
+                              "name": "Read More Link",
+                              "fill": "$accent-secondary",
+                              "content": "Read more →",
+                              "fontFamily": "Geist",
+                              "fontSize": 14,
+                              "fontWeight": "Bold"
+                            }
+                          ]
+                        }
+                      ]
                     }
                   ]
                 }
@@ -1573,7 +1882,7 @@
                   "id": "GwnMC",
                   "name": "H2: Design Engineering",
                   "fill": "$foreground-primary",
-                  "content": "Design Engineering",
+                  "content": "Product Design & Digital Art",
                   "fontFamily": "Playfair Display",
                   "fontSize": 28,
                   "fontWeight": "Bold"
@@ -1601,7 +1910,7 @@
                       "name": "Card: Military Intelligence Instructor Badge",
                       "width": 558,
                       "fill": "$surface-secondary",
-                      "stroke": "$border-subtle",
+                      "stroke": "$accent-primary",
                       "strokeWidth": 1,
                       "layout": "vertical",
                       "gap": 12,
@@ -1753,7 +2062,7 @@
                       "name": "Card: The Endless Mural",
                       "width": 558,
                       "fill": "$surface-secondary",
-                      "stroke": "$border-subtle",
+                      "stroke": "$accent-secondary",
                       "strokeWidth": 1,
                       "layout": "vertical",
                       "gap": 12,
@@ -1914,7 +2223,7 @@
                       "name": "Card: Military Adaptive Sports Program",
                       "width": 558,
                       "fill": "$surface-secondary",
-                      "stroke": "$border-subtle",
+                      "stroke": "$accent-tertiary",
                       "strokeWidth": 1,
                       "layout": "vertical",
                       "gap": 12,
@@ -2066,7 +2375,7 @@
                       "name": "Card: The Early Years 1995 - 2004",
                       "width": 558,
                       "fill": "$surface-secondary",
-                      "stroke": "$border-subtle",
+                      "stroke": "$accent-primary",
                       "strokeWidth": 1,
                       "layout": "vertical",
                       "gap": 12,
@@ -2227,7 +2536,7 @@
                       "name": "Card: What Steve Jobs Meant to Me",
                       "width": 558,
                       "fill": "$surface-secondary",
-                      "stroke": "$border-subtle",
+                      "stroke": "$accent-secondary",
                       "strokeWidth": 1,
                       "layout": "vertical",
                       "gap": 12,
@@ -2420,7 +2729,7 @@
                   "id": "VPcv9",
                   "name": "H2: 3D Modeling",
                   "fill": "$foreground-primary",
-                  "content": "3D Modeling",
+                  "content": "3D Character & Prop Art",
                   "fontFamily": "Playfair Display",
                   "fontSize": 28,
                   "fontWeight": "Bold"
@@ -2437,303 +2746,6 @@
               "children": [
                 {
                   "type": "frame",
-                  "id": "O14iW",
-                  "name": "Card Row 1",
-                  "width": "fill_container",
-                  "gap": 24,
-                  "children": [
-                    {
-                      "type": "frame",
-                      "id": "pOyh4",
-                      "name": "Card: Don’t Explode! by Joel Stransky",
-                      "width": 558,
-                      "fill": "$surface-secondary",
-                      "stroke": "$border-subtle",
-                      "strokeWidth": 1,
-                      "layout": "vertical",
-                      "gap": 12,
-                      "padding": 16,
-                      "children": [
-                        {
-                          "type": "frame",
-                          "id": "bYR4i",
-                          "name": "Top Row",
-                          "width": "fill_container",
-                          "gap": 16,
-                          "alignItems": "center",
-                          "children": [
-                            {
-                              "type": "frame",
-                              "id": "oRFZ3",
-                              "name": "Visual Thumbnail",
-                              "width": 250,
-                              "height": 130,
-                              "fill": {
-                                "type": "image",
-                                "enabled": true,
-                                "url": "../src/assets/dont-explode/featured.png",
-                                "mode": "fill"
-                              },
-                              "cornerRadius": 4,
-                              "stroke": "$border-subtle",
-                              "strokeWidth": 1
-                            },
-                            {
-                              "type": "frame",
-                              "id": "Dng06",
-                              "name": "Meta Col",
-                              "width": "fill_container",
-                              "layout": "vertical",
-                              "gap": 6,
-                              "children": [
-                                {
-                                  "type": "text",
-                                  "id": "MxroO",
-                                  "name": "Title",
-                                  "fill": "$foreground-primary",
-                                  "textGrowth": "fixed-width",
-                                  "width": "fill_container",
-                                  "content": "Don’t Explode! by Joel Stransky",
-                                  "fontFamily": "Playfair Display",
-                                  "fontSize": 18,
-                                  "fontWeight": "Medium"
-                                },
-                                {
-                                  "type": "text",
-                                  "id": "u6Iqo",
-                                  "name": "Tags",
-                                  "fill": "$accent-primary",
-                                  "textGrowth": "fixed-width",
-                                  "width": "fill_container",
-                                  "content": "MAYA • UNITY • C# • PHOTOSHOP • ADMOB",
-                                  "fontFamily": "Space Grotesk",
-                                  "fontSize": 9.5,
-                                  "fontWeight": "Medium"
-                                }
-                              ]
-                            }
-                          ]
-                        },
-                        {
-                          "type": "frame",
-                          "id": "w1OJ9B",
-                          "layoutPosition": "absolute",
-                          "x": 526,
-                          "y": 8,
-                          "name": "Glyph Wrapper",
-                          "width": 24,
-                          "height": 24,
-                          "layout": "none",
-                          "children": [
-                            {
-                              "type": "rectangle",
-                              "id": "KkSCT",
-                              "x": 5,
-                              "y": 5,
-                              "name": "Outer Diamond",
-                              "rotation": 45,
-                              "fill": "#00000000",
-                              "width": 14,
-                              "height": 14,
-                              "stroke": "$accent-primary",
-                              "strokeWidth": 2
-                            },
-                            {
-                              "type": "rectangle",
-                              "id": "I91Zy",
-                              "x": 9,
-                              "y": 9,
-                              "name": "Inner Diamond",
-                              "rotation": 45,
-                              "fill": "$accent-primary",
-                              "width": 6,
-                              "height": 6
-                            }
-                          ]
-                        },
-                        {
-                          "type": "frame",
-                          "id": "tukqV",
-                          "name": "Bottom Row",
-                          "width": "fill_container",
-                          "layout": "vertical",
-                          "gap": 6,
-                          "children": [
-                            {
-                              "type": "text",
-                              "id": "yqCxb",
-                              "name": "Desc",
-                              "fill": "$foreground-secondary",
-                              "textGrowth": "fixed-width",
-                              "width": "fill_container",
-                              "content": "Don't Explode is now available on the google play store. I sculpted, retopologized, UV’d, painted and coded this game from scratch.",
-                              "lineHeight": 1.4,
-                              "fontFamily": "Geist",
-                              "fontSize": 14,
-                              "fontWeight": "normal"
-                            },
-                            {
-                              "type": "text",
-                              "id": "i0wvjs",
-                              "name": "Read More Link",
-                              "fill": "$accent-primary",
-                              "content": "Read more →",
-                              "fontFamily": "Geist",
-                              "fontSize": 14,
-                              "fontWeight": "Bold"
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "type": "frame",
-                      "id": "Dy86n",
-                      "name": "Card: Announcing Don’t Explode!",
-                      "width": 558,
-                      "fill": "$surface-secondary",
-                      "stroke": "$border-subtle",
-                      "strokeWidth": 1,
-                      "layout": "vertical",
-                      "gap": 12,
-                      "padding": 16,
-                      "children": [
-                        {
-                          "type": "frame",
-                          "id": "Xw75s",
-                          "name": "Top Row",
-                          "width": "fill_container",
-                          "gap": 16,
-                          "alignItems": "center",
-                          "children": [
-                            {
-                              "type": "frame",
-                              "id": "ZbJ9H",
-                              "name": "Visual Thumbnail",
-                              "width": 250,
-                              "height": 130,
-                              "fill": {
-                                "type": "image",
-                                "enabled": true,
-                                "url": "../src/assets/dont-explode/tap-light.jpg",
-                                "mode": "fill"
-                              },
-                              "cornerRadius": 4,
-                              "stroke": "$border-subtle",
-                              "strokeWidth": 1
-                            },
-                            {
-                              "type": "frame",
-                              "id": "fk9NY",
-                              "name": "Meta Col",
-                              "width": "fill_container",
-                              "layout": "vertical",
-                              "gap": 6,
-                              "children": [
-                                {
-                                  "type": "text",
-                                  "id": "FNP6t",
-                                  "name": "Title",
-                                  "fill": "$foreground-primary",
-                                  "textGrowth": "fixed-width",
-                                  "width": "fill_container",
-                                  "content": "Announcing Don’t Explode!",
-                                  "fontFamily": "Playfair Display",
-                                  "fontSize": 18,
-                                  "fontWeight": "Medium"
-                                },
-                                {
-                                  "type": "text",
-                                  "id": "LDRcR",
-                                  "name": "Tags",
-                                  "fill": "$accent-secondary",
-                                  "textGrowth": "fixed-width",
-                                  "width": "fill_container",
-                                  "content": "MAYA • UNITY • C# • PHOTOSHOP",
-                                  "fontFamily": "Space Grotesk",
-                                  "fontSize": 9.5,
-                                  "fontWeight": "Medium"
-                                }
-                              ]
-                            }
-                          ]
-                        },
-                        {
-                          "type": "frame",
-                          "id": "R3CAG",
-                          "layoutPosition": "absolute",
-                          "x": 526,
-                          "y": 8,
-                          "name": "Glyph Wrapper",
-                          "width": 24,
-                          "height": 24,
-                          "layout": "none",
-                          "children": [
-                            {
-                              "type": "rectangle",
-                              "id": "ObFH3",
-                              "x": 5,
-                              "y": 5,
-                              "name": "Outer Diamond",
-                              "rotation": 45,
-                              "fill": "#00000000",
-                              "width": 14,
-                              "height": 14,
-                              "stroke": "$accent-secondary",
-                              "strokeWidth": 2
-                            },
-                            {
-                              "type": "rectangle",
-                              "id": "ndC8n",
-                              "x": 9,
-                              "y": 9,
-                              "name": "Inner Diamond",
-                              "rotation": 45,
-                              "fill": "$accent-secondary",
-                              "width": 6,
-                              "height": 6
-                            }
-                          ]
-                        },
-                        {
-                          "type": "frame",
-                          "id": "VcekU",
-                          "name": "Bottom Row",
-                          "width": "fill_container",
-                          "layout": "vertical",
-                          "gap": 6,
-                          "children": [
-                            {
-                              "type": "text",
-                              "id": "ViqXZ",
-                              "name": "Desc",
-                              "fill": "$foreground-secondary",
-                              "textGrowth": "fixed-width",
-                              "width": "fill_container",
-                              "content": "My website goes a long way towards demonstrating my various passions but what might not be so clear is just how desperately I want to work in the game industry. Being a military spouse so far has prevented me from living near any game studios.",
-                              "lineHeight": 1.4,
-                              "fontFamily": "Geist",
-                              "fontSize": 14,
-                              "fontWeight": "normal"
-                            },
-                            {
-                              "type": "text",
-                              "id": "fqxLi",
-                              "name": "Read More Link",
-                              "fill": "$accent-secondary",
-                              "content": "Read more →",
-                              "fontFamily": "Geist",
-                              "fontSize": 14,
-                              "fontWeight": "Bold"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "frame",
                   "id": "kUOKs",
                   "name": "Card Row 2",
                   "width": "fill_container",
@@ -2745,7 +2757,7 @@
                       "name": "Card: Game Resolution Bust",
                       "width": 558,
                       "fill": "$surface-secondary",
-                      "stroke": "$border-subtle",
+                      "stroke": "$accent-tertiary",
                       "strokeWidth": 1,
                       "layout": "vertical",
                       "gap": 12,
@@ -2889,7 +2901,7 @@
                       "name": "Card: MiO Bottle Product Shot",
                       "width": 558,
                       "fill": "$surface-secondary",
-                      "stroke": "$border-subtle",
+                      "stroke": "$accent-primary",
                       "strokeWidth": 1,
                       "layout": "vertical",
                       "gap": 12,
@@ -3042,7 +3054,7 @@
                       "name": "Card: Lip Sync Animation Test",
                       "width": 558,
                       "fill": "$surface-secondary",
-                      "stroke": "$border-subtle",
+                      "stroke": "$accent-secondary",
                       "strokeWidth": 1,
                       "layout": "vertical",
                       "gap": 12,
@@ -3186,7 +3198,7 @@
                       "name": "Card: The Griffon",
                       "width": 558,
                       "fill": "$surface-secondary",
-                      "stroke": "$border-subtle",
+                      "stroke": "$accent-tertiary",
                       "strokeWidth": 1,
                       "layout": "vertical",
                       "gap": 12,
@@ -3363,43 +3375,51 @@
               "gap": 24,
               "children": [
                 {
-                  "type": "text",
-                  "id": "MD4AH",
-                  "name": "Link GITHUB",
-                  "fill": "$foreground-secondary",
-                  "content": "GITHUB",
-                  "fontFamily": "Space Grotesk",
-                  "fontSize": 11,
-                  "fontWeight": "normal"
+                  "type": "icon",
+                  "id": "oyYIW",
+                  "name": "GitHub Link",
+                  "width": 20,
+                  "height": 20,
+                  "icon": "github",
+                  "library": "lucide",
+                  "fill": "$foreground-secondary"
+                },
+                {
+                  "type": "icon",
+                  "id": "N4W2D",
+                  "name": "LinkedIn Link",
+                  "width": 20,
+                  "height": 20,
+                  "icon": "linkedin",
+                  "library": "lucide",
+                  "fill": "$foreground-secondary"
+                },
+                {
+                  "type": "icon",
+                  "id": "jYGAK",
+                  "name": "Twitter Link",
+                  "width": 20,
+                  "height": 20,
+                  "icon": "twitter",
+                  "library": "lucide",
+                  "fill": "$foreground-secondary"
+                },
+                {
+                  "type": "rectangle",
+                  "id": "foLg1",
+                  "name": "Nav Divider",
+                  "fill": "$border-subtle",
+                  "width": 1,
+                  "height": 16
                 },
                 {
                   "type": "text",
-                  "id": "dqR0u",
-                  "name": "Link LINKEDIN",
-                  "fill": "$foreground-secondary",
-                  "content": "LINKEDIN",
-                  "fontFamily": "Space Grotesk",
-                  "fontSize": 11,
-                  "fontWeight": "normal"
-                },
-                {
-                  "type": "text",
-                  "id": "Z1rkFm",
-                  "name": "Link TWITTER",
-                  "fill": "$foreground-secondary",
-                  "content": "TWITTER",
-                  "fontFamily": "Space Grotesk",
-                  "fontSize": 11,
-                  "fontWeight": "normal"
-                },
-                {
-                  "type": "text",
-                  "id": "f0FOD",
+                  "id": "l9Lcq",
                   "name": "Link CV",
                   "fill": "$foreground-secondary",
                   "content": "CV",
                   "fontFamily": "Space Grotesk",
-                  "fontSize": 11,
+                  "fontSize": 13,
                   "fontWeight": "normal"
                 }
               ]
@@ -3514,6 +3534,19 @@
               "fontFamily": "Playfair Display",
               "fontSize": 24,
               "fontWeight": "Bold"
+            },
+            {
+              "type": "text",
+              "id": "NV1fm",
+              "name": "Body",
+              "fill": "$foreground-secondary",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "With 30+ years of experience building performant, scalable codebases. Specialized in TypeScript, React, Next.js, agentic engineering, and frontend optimization.",
+              "textAlign": "center",
+              "fontFamily": "Geist",
+              "fontSize": 13,
+              "fontWeight": "normal"
             }
           ]
         },
@@ -3546,7 +3579,7 @@
                   "id": "RJPAd",
                   "name": "H2: Application Engineering",
                   "fill": "$foreground-primary",
-                  "content": "Application Engineering",
+                  "content": "Front End & Game Development",
                   "fontFamily": "Playfair Display",
                   "fontSize": 20,
                   "fontWeight": "Bold"
@@ -3567,7 +3600,7 @@
                   "name": "Card: Bubble Park (Beta)",
                   "width": "fill_container",
                   "fill": "$surface-secondary",
-                  "stroke": "$border-subtle",
+                  "stroke": "$accent-primary",
                   "strokeWidth": 1,
                   "layout": "vertical",
                   "gap": 8,
@@ -3709,7 +3742,7 @@
                   "name": "Card: Kite Screen",
                   "width": "fill_container",
                   "fill": "$surface-secondary",
-                  "stroke": "$border-subtle",
+                  "stroke": "$accent-secondary",
                   "strokeWidth": 1,
                   "layout": "vertical",
                   "gap": 8,
@@ -3851,7 +3884,7 @@
                   "name": "Card: UH System Title IX Portal",
                   "width": "fill_container",
                   "fill": "$surface-secondary",
-                  "stroke": "$border-subtle",
+                  "stroke": "$accent-tertiary",
                   "strokeWidth": 1,
                   "layout": "vertical",
                   "gap": 8,
@@ -3993,7 +4026,7 @@
                   "name": "Card: UH Office of Human Resources",
                   "width": "fill_container",
                   "fill": "$surface-secondary",
-                  "stroke": "$border-subtle",
+                  "stroke": "$accent-primary",
                   "strokeWidth": 1,
                   "layout": "vertical",
                   "gap": 8,
@@ -4135,7 +4168,7 @@
                   "name": "Card: Superb.net",
                   "width": "fill_container",
                   "fill": "$surface-secondary",
-                  "stroke": "$border-subtle",
+                  "stroke": "$accent-secondary",
                   "strokeWidth": 1,
                   "layout": "vertical",
                   "gap": 8,
@@ -4277,7 +4310,7 @@
                   "name": "Card: Hopone.net",
                   "width": "fill_container",
                   "fill": "$surface-secondary",
-                  "stroke": "$border-subtle",
+                  "stroke": "$accent-tertiary",
                   "strokeWidth": 1,
                   "layout": "vertical",
                   "gap": 8,
@@ -4419,7 +4452,7 @@
                   "name": "Card: Nook Color Kids Reader",
                   "width": "fill_container",
                   "fill": "$surface-secondary",
-                  "stroke": "$border-subtle",
+                  "stroke": "$accent-primary",
                   "strokeWidth": 1,
                   "layout": "vertical",
                   "gap": 8,
@@ -4561,7 +4594,7 @@
                   "name": "Card: The Living Glass Conversation",
                   "width": "fill_container",
                   "fill": "$surface-secondary",
-                  "stroke": "$border-subtle",
+                  "stroke": "$accent-secondary",
                   "strokeWidth": 1,
                   "layout": "vertical",
                   "gap": 8,
@@ -4703,7 +4736,7 @@
                   "name": "Card: Cultureplayer.com",
                   "width": "fill_container",
                   "fill": "$surface-secondary",
-                  "stroke": "$border-subtle",
+                  "stroke": "$accent-tertiary",
                   "strokeWidth": 1,
                   "layout": "vertical",
                   "gap": 8,
@@ -4838,6 +4871,294 @@
                       ]
                     }
                   ]
+                },
+                {
+                  "type": "frame",
+                  "id": "YleEu",
+                  "name": "Card: Don’t Explode! by Joel Stransky",
+                  "width": "fill_container",
+                  "fill": "$surface-secondary",
+                  "stroke": "$accent-primary",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 8,
+                  "padding": 12,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "KUMTi",
+                      "name": "Top Row",
+                      "width": "fill_container",
+                      "gap": 12,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "uUUVq",
+                          "name": "Visual Thumbnail",
+                          "width": 150,
+                          "height": 90,
+                          "fill": {
+                            "type": "image",
+                            "enabled": true,
+                            "url": "../src/assets/dont-explode/featured.png",
+                            "mode": "fill"
+                          },
+                          "cornerRadius": 4,
+                          "stroke": "$border-subtle",
+                          "strokeWidth": 1
+                        },
+                        {
+                          "type": "frame",
+                          "id": "bEfGN",
+                          "name": "Meta Col",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 4,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "S3gYF",
+                              "name": "Title",
+                              "fill": "$foreground-primary",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "Don’t Explode! by Joel Stransky",
+                              "fontFamily": "Playfair Display",
+                              "fontSize": 16,
+                              "fontWeight": "Medium"
+                            },
+                            {
+                              "type": "text",
+                              "id": "wi2Q7",
+                              "name": "Tags",
+                              "fill": "$accent-primary",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "MAYA • UNITY • C# • PHOTOSHOP • ADMOB",
+                              "fontFamily": "Space Grotesk",
+                              "fontSize": 8.5,
+                              "fontWeight": "Medium"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "xupGh",
+                      "layoutPosition": "absolute",
+                      "x": 320,
+                      "y": 6,
+                      "name": "Glyph Wrapper",
+                      "width": 16,
+                      "height": 16,
+                      "layout": "none",
+                      "children": [
+                        {
+                          "type": "rectangle",
+                          "id": "ZaGPM",
+                          "x": 2.5,
+                          "y": 2.5,
+                          "name": "Outer Diamond",
+                          "rotation": 45,
+                          "fill": "#00000000",
+                          "width": 9,
+                          "height": 9,
+                          "stroke": "$accent-primary",
+                          "strokeWidth": 1.2
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "KptpN",
+                          "x": 5,
+                          "y": 5,
+                          "name": "Inner Diamond",
+                          "rotation": 45,
+                          "fill": "$accent-primary",
+                          "width": 4,
+                          "height": 4
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Lgciq",
+                      "name": "Bottom Row",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 4,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "lYBCE",
+                          "name": "Desc",
+                          "fill": "$foreground-secondary",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Don't Explode is now available on the google play store. I sculpted, r...",
+                          "lineHeight": 1.4,
+                          "fontFamily": "Geist",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "t7JkUU",
+                          "name": "Read More Link",
+                          "fill": "$accent-primary",
+                          "content": "Read more →",
+                          "fontFamily": "Geist",
+                          "fontSize": 12,
+                          "fontWeight": "Bold"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "Q4kGqg",
+                  "name": "Card: Announcing Don’t Explode!",
+                  "width": "fill_container",
+                  "fill": "$surface-secondary",
+                  "stroke": "$accent-secondary",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 8,
+                  "padding": 12,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "IBxMP",
+                      "name": "Top Row",
+                      "width": "fill_container",
+                      "gap": 12,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "CMjp6",
+                          "name": "Visual Thumbnail",
+                          "width": 150,
+                          "height": 90,
+                          "fill": {
+                            "type": "image",
+                            "enabled": true,
+                            "url": "../src/assets/dont-explode/tap-light.jpg",
+                            "mode": "fill"
+                          },
+                          "cornerRadius": 4,
+                          "stroke": "$border-subtle",
+                          "strokeWidth": 1
+                        },
+                        {
+                          "type": "frame",
+                          "id": "z7h8ck",
+                          "name": "Meta Col",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 4,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "b5oZq1",
+                              "name": "Title",
+                              "fill": "$foreground-primary",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "Announcing Don’t Explode!",
+                              "fontFamily": "Playfair Display",
+                              "fontSize": 16,
+                              "fontWeight": "Medium"
+                            },
+                            {
+                              "type": "text",
+                              "id": "X62zR",
+                              "name": "Tags",
+                              "fill": "$accent-secondary",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "MAYA • UNITY • C# • PHOTOSHOP",
+                              "fontFamily": "Space Grotesk",
+                              "fontSize": 8.5,
+                              "fontWeight": "Medium"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "opfFR",
+                      "layoutPosition": "absolute",
+                      "x": 320,
+                      "y": 6,
+                      "name": "Glyph Wrapper",
+                      "width": 16,
+                      "height": 16,
+                      "layout": "none",
+                      "children": [
+                        {
+                          "type": "rectangle",
+                          "id": "IDQG2",
+                          "x": 2.5,
+                          "y": 2.5,
+                          "name": "Outer Diamond",
+                          "rotation": 45,
+                          "fill": "#00000000",
+                          "width": 9,
+                          "height": 9,
+                          "stroke": "$accent-secondary",
+                          "strokeWidth": 1.2
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "LWjqz",
+                          "x": 5,
+                          "y": 5,
+                          "name": "Inner Diamond",
+                          "rotation": 45,
+                          "fill": "$accent-secondary",
+                          "width": 4,
+                          "height": 4
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "GMyTe",
+                      "name": "Bottom Row",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 4,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "BAALr",
+                          "name": "Desc",
+                          "fill": "$foreground-secondary",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "My website goes a long way towards demonstrating my various passions b...",
+                          "lineHeight": 1.4,
+                          "fontFamily": "Geist",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "XZNoA",
+                          "name": "Read More Link",
+                          "fill": "$accent-secondary",
+                          "content": "Read more →",
+                          "fontFamily": "Geist",
+                          "fontSize": 12,
+                          "fontWeight": "Bold"
+                        }
+                      ]
+                    }
+                  ]
                 }
               ]
             }
@@ -4872,7 +5193,7 @@
                   "id": "qtTsE",
                   "name": "H2: Design Engineering",
                   "fill": "$foreground-primary",
-                  "content": "Design Engineering",
+                  "content": "Product Design & Digital Art",
                   "fontFamily": "Playfair Display",
                   "fontSize": 20,
                   "fontWeight": "Bold"
@@ -4893,7 +5214,7 @@
                   "name": "Card: Military Intelligence Instructor Badge",
                   "width": "fill_container",
                   "fill": "$surface-secondary",
-                  "stroke": "$border-subtle",
+                  "stroke": "$accent-primary",
                   "strokeWidth": 1,
                   "layout": "vertical",
                   "gap": 8,
@@ -5045,7 +5366,7 @@
                   "name": "Card: The Endless Mural",
                   "width": "fill_container",
                   "fill": "$surface-secondary",
-                  "stroke": "$border-subtle",
+                  "stroke": "$accent-secondary",
                   "strokeWidth": 1,
                   "layout": "vertical",
                   "gap": 8,
@@ -5197,7 +5518,7 @@
                   "name": "Card: Military Adaptive Sports Program",
                   "width": "fill_container",
                   "fill": "$surface-secondary",
-                  "stroke": "$border-subtle",
+                  "stroke": "$accent-tertiary",
                   "strokeWidth": 1,
                   "layout": "vertical",
                   "gap": 8,
@@ -5349,7 +5670,7 @@
                   "name": "Card: The Early Years 1995 - 2004",
                   "width": "fill_container",
                   "fill": "$surface-secondary",
-                  "stroke": "$border-subtle",
+                  "stroke": "$accent-primary",
                   "strokeWidth": 1,
                   "layout": "vertical",
                   "gap": 8,
@@ -5501,7 +5822,7 @@
                   "name": "Card: What Steve Jobs Meant to Me",
                   "width": "fill_container",
                   "fill": "$surface-secondary",
-                  "stroke": "$border-subtle",
+                  "stroke": "$accent-secondary",
                   "strokeWidth": 1,
                   "layout": "vertical",
                   "gap": 8,
@@ -5680,7 +6001,7 @@
                   "id": "KuuCZ",
                   "name": "H2: 3D Modeling",
                   "fill": "$foreground-primary",
-                  "content": "3D Modeling",
+                  "content": "3D Character & Prop Art",
                   "fontFamily": "Playfair Display",
                   "fontSize": 20,
                   "fontWeight": "Bold"
@@ -5697,299 +6018,11 @@
               "children": [
                 {
                   "type": "frame",
-                  "id": "YleEu",
-                  "name": "Card: Don’t Explode! by Joel Stransky",
-                  "width": "fill_container",
-                  "fill": "$surface-secondary",
-                  "stroke": "$border-subtle",
-                  "strokeWidth": 1,
-                  "layout": "vertical",
-                  "gap": 8,
-                  "padding": 12,
-                  "children": [
-                    {
-                      "type": "frame",
-                      "id": "KUMTi",
-                      "name": "Top Row",
-                      "width": "fill_container",
-                      "gap": 12,
-                      "alignItems": "center",
-                      "children": [
-                        {
-                          "type": "frame",
-                          "id": "uUUVq",
-                          "name": "Visual Thumbnail",
-                          "width": 150,
-                          "height": 90,
-                          "fill": {
-                            "type": "image",
-                            "enabled": true,
-                            "url": "../src/assets/dont-explode/featured.png",
-                            "mode": "fill"
-                          },
-                          "cornerRadius": 4,
-                          "stroke": "$border-subtle",
-                          "strokeWidth": 1
-                        },
-                        {
-                          "type": "frame",
-                          "id": "bEfGN",
-                          "name": "Meta Col",
-                          "width": "fill_container",
-                          "layout": "vertical",
-                          "gap": 4,
-                          "children": [
-                            {
-                              "type": "text",
-                              "id": "S3gYF",
-                              "name": "Title",
-                              "fill": "$foreground-primary",
-                              "textGrowth": "fixed-width",
-                              "width": "fill_container",
-                              "content": "Don’t Explode! by Joel Stransky",
-                              "fontFamily": "Playfair Display",
-                              "fontSize": 16,
-                              "fontWeight": "Medium"
-                            },
-                            {
-                              "type": "text",
-                              "id": "wi2Q7",
-                              "name": "Tags",
-                              "fill": "$accent-primary",
-                              "textGrowth": "fixed-width",
-                              "width": "fill_container",
-                              "content": "MAYA • UNITY • C# • PHOTOSHOP • ADMOB",
-                              "fontFamily": "Space Grotesk",
-                              "fontSize": 8.5,
-                              "fontWeight": "Medium"
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "type": "frame",
-                      "id": "xupGh",
-                      "layoutPosition": "absolute",
-                      "x": 320,
-                      "y": 6,
-                      "name": "Glyph Wrapper",
-                      "width": 16,
-                      "height": 16,
-                      "layout": "none",
-                      "children": [
-                        {
-                          "type": "rectangle",
-                          "id": "ZaGPM",
-                          "x": 2.5,
-                          "y": 2.5,
-                          "name": "Outer Diamond",
-                          "rotation": 45,
-                          "fill": "#00000000",
-                          "width": 9,
-                          "height": 9,
-                          "stroke": "$accent-primary",
-                          "strokeWidth": 1.2
-                        },
-                        {
-                          "type": "rectangle",
-                          "id": "KptpN",
-                          "x": 5,
-                          "y": 5,
-                          "name": "Inner Diamond",
-                          "rotation": 45,
-                          "fill": "$accent-primary",
-                          "width": 4,
-                          "height": 4
-                        }
-                      ]
-                    },
-                    {
-                      "type": "frame",
-                      "id": "Lgciq",
-                      "name": "Bottom Row",
-                      "width": "fill_container",
-                      "layout": "vertical",
-                      "gap": 4,
-                      "children": [
-                        {
-                          "type": "text",
-                          "id": "lYBCE",
-                          "name": "Desc",
-                          "fill": "$foreground-secondary",
-                          "textGrowth": "fixed-width",
-                          "width": "fill_container",
-                          "content": "Don't Explode is now available on the google play store. I sculpted, r...",
-                          "lineHeight": 1.4,
-                          "fontFamily": "Geist",
-                          "fontSize": 12,
-                          "fontWeight": "normal"
-                        },
-                        {
-                          "type": "text",
-                          "id": "t7JkUU",
-                          "name": "Read More Link",
-                          "fill": "$accent-primary",
-                          "content": "Read more →",
-                          "fontFamily": "Geist",
-                          "fontSize": 12,
-                          "fontWeight": "Bold"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "frame",
-                  "id": "Q4kGqg",
-                  "name": "Card: Announcing Don’t Explode!",
-                  "width": "fill_container",
-                  "fill": "$surface-secondary",
-                  "stroke": "$border-subtle",
-                  "strokeWidth": 1,
-                  "layout": "vertical",
-                  "gap": 8,
-                  "padding": 12,
-                  "children": [
-                    {
-                      "type": "frame",
-                      "id": "IBxMP",
-                      "name": "Top Row",
-                      "width": "fill_container",
-                      "gap": 12,
-                      "alignItems": "center",
-                      "children": [
-                        {
-                          "type": "frame",
-                          "id": "CMjp6",
-                          "name": "Visual Thumbnail",
-                          "width": 150,
-                          "height": 90,
-                          "fill": {
-                            "type": "image",
-                            "enabled": true,
-                            "url": "../src/assets/dont-explode/tap-light.jpg",
-                            "mode": "fill"
-                          },
-                          "cornerRadius": 4,
-                          "stroke": "$border-subtle",
-                          "strokeWidth": 1
-                        },
-                        {
-                          "type": "frame",
-                          "id": "z7h8ck",
-                          "name": "Meta Col",
-                          "width": "fill_container",
-                          "layout": "vertical",
-                          "gap": 4,
-                          "children": [
-                            {
-                              "type": "text",
-                              "id": "b5oZq1",
-                              "name": "Title",
-                              "fill": "$foreground-primary",
-                              "textGrowth": "fixed-width",
-                              "width": "fill_container",
-                              "content": "Announcing Don’t Explode!",
-                              "fontFamily": "Playfair Display",
-                              "fontSize": 16,
-                              "fontWeight": "Medium"
-                            },
-                            {
-                              "type": "text",
-                              "id": "X62zR",
-                              "name": "Tags",
-                              "fill": "$accent-secondary",
-                              "textGrowth": "fixed-width",
-                              "width": "fill_container",
-                              "content": "MAYA • UNITY • C# • PHOTOSHOP",
-                              "fontFamily": "Space Grotesk",
-                              "fontSize": 8.5,
-                              "fontWeight": "Medium"
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "type": "frame",
-                      "id": "opfFR",
-                      "layoutPosition": "absolute",
-                      "x": 320,
-                      "y": 6,
-                      "name": "Glyph Wrapper",
-                      "width": 16,
-                      "height": 16,
-                      "layout": "none",
-                      "children": [
-                        {
-                          "type": "rectangle",
-                          "id": "IDQG2",
-                          "x": 2.5,
-                          "y": 2.5,
-                          "name": "Outer Diamond",
-                          "rotation": 45,
-                          "fill": "#00000000",
-                          "width": 9,
-                          "height": 9,
-                          "stroke": "$accent-secondary",
-                          "strokeWidth": 1.2
-                        },
-                        {
-                          "type": "rectangle",
-                          "id": "LWjqz",
-                          "x": 5,
-                          "y": 5,
-                          "name": "Inner Diamond",
-                          "rotation": 45,
-                          "fill": "$accent-secondary",
-                          "width": 4,
-                          "height": 4
-                        }
-                      ]
-                    },
-                    {
-                      "type": "frame",
-                      "id": "GMyTe",
-                      "name": "Bottom Row",
-                      "width": "fill_container",
-                      "layout": "vertical",
-                      "gap": 4,
-                      "children": [
-                        {
-                          "type": "text",
-                          "id": "BAALr",
-                          "name": "Desc",
-                          "fill": "$foreground-secondary",
-                          "textGrowth": "fixed-width",
-                          "width": "fill_container",
-                          "content": "My website goes a long way towards demonstrating my various passions b...",
-                          "lineHeight": 1.4,
-                          "fontFamily": "Geist",
-                          "fontSize": 12,
-                          "fontWeight": "normal"
-                        },
-                        {
-                          "type": "text",
-                          "id": "XZNoA",
-                          "name": "Read More Link",
-                          "fill": "$accent-secondary",
-                          "content": "Read more →",
-                          "fontFamily": "Geist",
-                          "fontSize": 12,
-                          "fontWeight": "Bold"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "frame",
                   "id": "fWLx0",
                   "name": "Card: Game Resolution Bust",
                   "width": "fill_container",
                   "fill": "$surface-secondary",
-                  "stroke": "$border-subtle",
+                  "stroke": "$accent-tertiary",
                   "strokeWidth": 1,
                   "layout": "vertical",
                   "gap": 8,
@@ -6133,7 +6166,7 @@
                   "name": "Card: MiO Bottle Product Shot",
                   "width": "fill_container",
                   "fill": "$surface-secondary",
-                  "stroke": "$border-subtle",
+                  "stroke": "$accent-primary",
                   "strokeWidth": 1,
                   "layout": "vertical",
                   "gap": 8,
@@ -6277,7 +6310,7 @@
                   "name": "Card: Lip Sync Animation Test",
                   "width": "fill_container",
                   "fill": "$surface-secondary",
-                  "stroke": "$border-subtle",
+                  "stroke": "$accent-secondary",
                   "strokeWidth": 1,
                   "layout": "vertical",
                   "gap": 8,
@@ -6421,7 +6454,7 @@
                   "name": "Card: The Griffon",
                   "width": "fill_container",
                   "fill": "$surface-secondary",
-                  "stroke": "$border-subtle",
+                  "stroke": "$accent-tertiary",
                   "strokeWidth": 1,
                   "layout": "vertical",
                   "gap": 8,
@@ -6597,43 +6630,51 @@
               "gap": 16,
               "children": [
                 {
-                  "type": "text",
-                  "id": "neTwt",
-                  "name": "Link GITHUB",
-                  "fill": "$foreground-secondary",
-                  "content": "GITHUB",
-                  "fontFamily": "Space Grotesk",
-                  "fontSize": 9,
-                  "fontWeight": "normal"
+                  "type": "icon",
+                  "id": "JoOGR",
+                  "name": "GitHub Link",
+                  "width": 18,
+                  "height": 18,
+                  "icon": "github",
+                  "library": "lucide",
+                  "fill": "$foreground-secondary"
+                },
+                {
+                  "type": "icon",
+                  "id": "uFZQ0",
+                  "name": "LinkedIn Link",
+                  "width": 18,
+                  "height": 18,
+                  "icon": "linkedin",
+                  "library": "lucide",
+                  "fill": "$foreground-secondary"
+                },
+                {
+                  "type": "icon",
+                  "id": "xFJPy",
+                  "name": "Twitter Link",
+                  "width": 18,
+                  "height": 18,
+                  "icon": "twitter",
+                  "library": "lucide",
+                  "fill": "$foreground-secondary"
+                },
+                {
+                  "type": "rectangle",
+                  "id": "PEeez",
+                  "name": "Nav Divider",
+                  "fill": "$border-subtle",
+                  "width": 1,
+                  "height": 14
                 },
                 {
                   "type": "text",
-                  "id": "piNyO",
-                  "name": "Link LINKEDIN",
-                  "fill": "$foreground-secondary",
-                  "content": "LINKEDIN",
-                  "fontFamily": "Space Grotesk",
-                  "fontSize": 9,
-                  "fontWeight": "normal"
-                },
-                {
-                  "type": "text",
-                  "id": "FN67v",
-                  "name": "Link TWITTER",
-                  "fill": "$foreground-secondary",
-                  "content": "TWITTER",
-                  "fontFamily": "Space Grotesk",
-                  "fontSize": 9,
-                  "fontWeight": "normal"
-                },
-                {
-                  "type": "text",
-                  "id": "MKN57",
+                  "id": "P36bJ3",
                   "name": "Link CV",
                   "fill": "$foreground-secondary",
                   "content": "CV",
                   "fontFamily": "Space Grotesk",
-                  "fontSize": 9,
+                  "fontSize": 11,
                   "fontWeight": "normal"
                 }
               ]
@@ -7183,43 +7224,51 @@
               "gap": 24,
               "children": [
                 {
-                  "type": "text",
-                  "id": "xB5su",
-                  "name": "Link GITHUB",
-                  "fill": "$foreground-secondary",
-                  "content": "GITHUB",
-                  "fontFamily": "Space Grotesk",
-                  "fontSize": 11,
-                  "fontWeight": "normal"
+                  "type": "icon",
+                  "id": "CMN4c",
+                  "name": "GitHub Link",
+                  "width": 20,
+                  "height": 20,
+                  "icon": "github",
+                  "library": "lucide",
+                  "fill": "$foreground-secondary"
+                },
+                {
+                  "type": "icon",
+                  "id": "aPEv8",
+                  "name": "LinkedIn Link",
+                  "width": 20,
+                  "height": 20,
+                  "icon": "linkedin",
+                  "library": "lucide",
+                  "fill": "$foreground-secondary"
+                },
+                {
+                  "type": "icon",
+                  "id": "reiKP",
+                  "name": "Twitter Link",
+                  "width": 20,
+                  "height": 20,
+                  "icon": "twitter",
+                  "library": "lucide",
+                  "fill": "$foreground-secondary"
+                },
+                {
+                  "type": "rectangle",
+                  "id": "K8AOPZ",
+                  "name": "Nav Divider",
+                  "fill": "$border-subtle",
+                  "width": 1,
+                  "height": 16
                 },
                 {
                   "type": "text",
-                  "id": "KK61Y",
-                  "name": "Link LINKEDIN",
-                  "fill": "$foreground-secondary",
-                  "content": "LINKEDIN",
-                  "fontFamily": "Space Grotesk",
-                  "fontSize": 11,
-                  "fontWeight": "normal"
-                },
-                {
-                  "type": "text",
-                  "id": "iN62B",
-                  "name": "Link TWITTER",
-                  "fill": "$foreground-secondary",
-                  "content": "TWITTER",
-                  "fontFamily": "Space Grotesk",
-                  "fontSize": 11,
-                  "fontWeight": "normal"
-                },
-                {
-                  "type": "text",
-                  "id": "awpPG",
+                  "id": "IwW5g",
                   "name": "Link CV",
                   "fill": "$foreground-secondary",
                   "content": "CV",
                   "fontFamily": "Space Grotesk",
-                  "fontSize": 11,
+                  "fontSize": 13,
                   "fontWeight": "normal"
                 }
               ]
@@ -7724,42 +7773,548 @@
               "gap": 16,
               "children": [
                 {
-                  "type": "text",
-                  "id": "DEmxo",
-                  "name": "Link GITHUB",
-                  "fill": "$foreground-secondary",
-                  "content": "GITHUB",
-                  "fontFamily": "Inter",
-                  "fontSize": 9,
-                  "fontWeight": "normal"
+                  "type": "icon",
+                  "id": "YWgbi",
+                  "name": "GitHub Link",
+                  "width": 18,
+                  "height": 18,
+                  "icon": "github",
+                  "library": "lucide",
+                  "fill": "$foreground-secondary"
+                },
+                {
+                  "type": "icon",
+                  "id": "Dptl1",
+                  "name": "LinkedIn Link",
+                  "width": 18,
+                  "height": 18,
+                  "icon": "linkedin",
+                  "library": "lucide",
+                  "fill": "$foreground-secondary"
+                },
+                {
+                  "type": "icon",
+                  "id": "VYFxi",
+                  "name": "Twitter Link",
+                  "width": 18,
+                  "height": 18,
+                  "icon": "twitter",
+                  "library": "lucide",
+                  "fill": "$foreground-secondary"
+                },
+                {
+                  "type": "rectangle",
+                  "id": "nQc9x",
+                  "name": "Nav Divider",
+                  "fill": "$border-subtle",
+                  "width": 1,
+                  "height": 14
                 },
                 {
                   "type": "text",
-                  "id": "mThpU",
-                  "name": "Link LINKEDIN",
-                  "fill": "$foreground-secondary",
-                  "content": "LINKEDIN",
-                  "fontFamily": "Inter",
-                  "fontSize": 9,
-                  "fontWeight": "normal"
-                },
-                {
-                  "type": "text",
-                  "id": "vT4kv",
-                  "name": "Link TWITTER",
-                  "fill": "$foreground-secondary",
-                  "content": "TWITTER",
-                  "fontFamily": "Inter",
-                  "fontSize": 9,
-                  "fontWeight": "normal"
-                },
-                {
-                  "type": "text",
-                  "id": "F1N9s3",
+                  "id": "OKqKz",
                   "name": "Link CV",
                   "fill": "$foreground-secondary",
                   "content": "CV",
-                  "fontFamily": "Inter",
+                  "fontFamily": "Space Grotesk",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "MjgC1",
+      "x": 8900,
+      "y": 0,
+      "name": "About Page Desktop",
+      "theme": {
+        "mode": "serif-dark"
+      },
+      "clip": true,
+      "width": 1440,
+      "height": 1200,
+      "fill": "$surface-primary",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "AUk8v",
+          "name": "Nav Header",
+          "width": "fill_container",
+          "stroke": "$border-subtle",
+          "strokeWidth": {
+            "bottom": 1
+          },
+          "padding": [
+            24,
+            80
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "h8EyX",
+              "name": "Logo",
+              "fill": "$foreground-primary",
+              "content": "JOEL STRANSKY",
+              "fontFamily": "Playfair Display",
+              "fontSize": 18,
+              "fontWeight": "Bold"
+            },
+            {
+              "type": "frame",
+              "id": "nZofT",
+              "name": "Right Area",
+              "gap": 24,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "d2Iho",
+                  "name": "Nav Links",
+                  "gap": 24,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "OoGud",
+                      "name": "Link WORK",
+                      "fill": "$foreground-secondary",
+                      "content": "WORK",
+                      "fontFamily": "Space Grotesk",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "VzLgN",
+                      "name": "Link ABOUT",
+                      "fill": "$foreground-primary",
+                      "content": "ABOUT",
+                      "fontFamily": "Space Grotesk",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "rfIcO",
+                      "name": "Link CV",
+                      "fill": "$foreground-secondary",
+                      "content": "CV",
+                      "fontFamily": "Space Grotesk",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "rectangle",
+                  "id": "G4vkR",
+                  "name": "Nav Divider",
+                  "fill": "$border-subtle",
+                  "width": 1,
+                  "height": 16
+                },
+                {
+                  "type": "frame",
+                  "id": "jQ0u7",
+                  "name": "Action Group",
+                  "gap": 16,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "HYGbi",
+                      "name": "GitHub Link",
+                      "width": 20,
+                      "height": 20,
+                      "icon": "github",
+                      "library": "lucide",
+                      "fill": "$foreground-secondary"
+                    },
+                    {
+                      "type": "icon",
+                      "id": "kVvK9",
+                      "name": "Theme Toggle",
+                      "width": 20,
+                      "height": 20,
+                      "icon": "sun-moon",
+                      "library": "lucide",
+                      "fill": "$foreground-secondary"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "FsWkG",
+          "name": "About Content Wrapper",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 32,
+          "padding": [
+            60,
+            150
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "TytJY",
+              "name": "H1",
+              "fill": "$foreground-primary",
+              "content": "About Joel Stransky",
+              "fontFamily": "Playfair Display",
+              "fontSize": 44,
+              "fontWeight": "Bold"
+            },
+            {
+              "type": "text",
+              "id": "k6iPe",
+              "name": "Paragraph 1",
+              "fill": "$foreground-secondary",
+              "content": "I am a Senior Software Engineer, UI/UX Designer, and Game Artist with over 30 years of experience developing interactive web applications. My work focuses on bridging the gap between interface design and front-end engineering architecture. I manage complex application state, design tokens, and browser-level runtime optimizations across various tech stacks, specializing in TypeScript, React, Next.js, SCSS, and monorepos.",
+              "lineHeight": 1.6,
+              "fontFamily": "Geist",
+              "fontSize": 16,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "xnlCC",
+              "name": "Paragraph 2",
+              "fill": "$foreground-secondary",
+              "content": "My background includes engineering tools, framework standards, and custom browser extension components. At Konami Gaming, I replaced a legacy interface by implementing an open-source Chromium integration framework within a Java runtime, eliminating corporate software licensing fees and enabling native extension support for debugging. At College Loan Corporation, I consolidated six disparate platforms into a unified design system using variables and components in Figma, while optimizing layout performance to move site Google Lighthouse scores from C to A ratings.",
+              "lineHeight": 1.6,
+              "fontFamily": "Geist",
+              "fontSize": 16,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "nobhS",
+              "name": "Paragraph 3",
+              "fill": "$foreground-secondary",
+              "content": "I have also developed reusable parent-theme architectures for the University of Hawaii and contributed to the ePib framework standard for the Barnes & Noble Nook Color rollout. My graphics and 3D engineering experience spans Game Art training at Full Sail University to building real-time client-server physics orchestration using TypeScript and React within Roblox. My current focus includes implementing Model Context Protocol (MCP) servers and structuring developer automation tools.",
+              "lineHeight": 1.6,
+              "fontFamily": "Geist",
+              "fontSize": 16,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "AEudi",
+          "name": "Footer Section",
+          "width": "fill_container",
+          "stroke": "$border-subtle",
+          "strokeWidth": {
+            "top": 1
+          },
+          "padding": [
+            32,
+            80
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "K9N7rO",
+              "name": "Copyright",
+              "fill": "$foreground-secondary",
+              "content": "© 2026 JOEL STRANSKY. ALL RIGHTS RESERVED.",
+              "fontFamily": "Space Grotesk",
+              "fontSize": 13,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "k4oIwC",
+              "name": "Footer Links",
+              "gap": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "mQVV3",
+                  "name": "GitHub Link",
+                  "width": 20,
+                  "height": 20,
+                  "icon": "github",
+                  "library": "lucide",
+                  "fill": "$foreground-secondary"
+                },
+                {
+                  "type": "icon",
+                  "id": "V7U8C",
+                  "name": "LinkedIn Link",
+                  "width": 20,
+                  "height": 20,
+                  "icon": "linkedin",
+                  "library": "lucide",
+                  "fill": "$foreground-secondary"
+                },
+                {
+                  "type": "icon",
+                  "id": "J53BFT",
+                  "name": "Twitter Link",
+                  "width": 20,
+                  "height": 20,
+                  "icon": "twitter",
+                  "library": "lucide",
+                  "fill": "$foreground-secondary"
+                },
+                {
+                  "type": "rectangle",
+                  "id": "Leldf",
+                  "name": "Nav Divider",
+                  "fill": "$border-subtle",
+                  "width": 1,
+                  "height": 16
+                },
+                {
+                  "type": "text",
+                  "id": "k4n0X",
+                  "name": "Link CV",
+                  "fill": "$foreground-secondary",
+                  "content": "CV",
+                  "fontFamily": "Space Grotesk",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "cXZBg",
+      "x": 10440,
+      "y": 0,
+      "name": "About Page Mobile",
+      "theme": {
+        "mode": "serif-dark"
+      },
+      "clip": true,
+      "width": 390,
+      "height": 1400,
+      "fill": "$surface-primary",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "N66Pox",
+          "name": "Mobile Nav Header",
+          "width": "fill_container",
+          "stroke": "$border-subtle",
+          "strokeWidth": {
+            "bottom": 1
+          },
+          "padding": [
+            16,
+            24
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "vqJym",
+              "name": "Logo",
+              "fill": "$foreground-primary",
+              "content": "JOEL STRANSKY",
+              "fontFamily": "Playfair Display",
+              "fontSize": 15,
+              "fontWeight": "Bold"
+            },
+            {
+              "type": "frame",
+              "id": "Zy91B",
+              "name": "Right Group",
+              "gap": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "VWhq1",
+                  "name": "GitHub Link",
+                  "width": 18,
+                  "height": 18,
+                  "icon": "github",
+                  "library": "lucide",
+                  "fill": "$foreground-secondary"
+                },
+                {
+                  "type": "icon",
+                  "id": "OReNs",
+                  "name": "Theme Toggle",
+                  "width": 18,
+                  "height": 18,
+                  "icon": "sun-moon",
+                  "library": "lucide",
+                  "fill": "$foreground-secondary"
+                },
+                {
+                  "type": "icon",
+                  "id": "q4iEYw",
+                  "name": "Menu Icon",
+                  "width": 24,
+                  "height": 24,
+                  "icon": "menu",
+                  "library": "lucide",
+                  "fill": "$foreground-primary"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "RBdXH",
+          "name": "Mobile Content Wrapper",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 24,
+          "padding": [
+            32,
+            24
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "nvNR0",
+              "name": "H1",
+              "fill": "$foreground-primary",
+              "content": "About Joel Stransky",
+              "fontFamily": "Playfair Display",
+              "fontSize": 28,
+              "fontWeight": "Bold"
+            },
+            {
+              "type": "text",
+              "id": "c8Br4b",
+              "name": "Paragraph 1",
+              "fill": "$foreground-secondary",
+              "content": "I am a Senior Software Engineer, UI/UX Designer, and Game Artist with over 30 years of experience developing interactive web applications. My work focuses on bridging the gap between interface design and front-end engineering architecture. I manage complex application state, design tokens, and browser-level runtime optimizations across various tech stacks, specializing in TypeScript, React, Next.js, SCSS, and monorepos.",
+              "lineHeight": 1.5,
+              "fontFamily": "Geist",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "p1j7NU",
+              "name": "Paragraph 2",
+              "fill": "$foreground-secondary",
+              "content": "My background includes engineering tools, framework standards, and custom browser extension components. At Konami Gaming, I replaced a legacy interface by implementing an open-source Chromium integration framework within a Java runtime, eliminating corporate software licensing fees and enabling native extension support for debugging. At College Loan Corporation, I consolidated six disparate platforms into a unified design system using variables and components in Figma, while optimizing layout performance to move site Google Lighthouse scores from C to A ratings.",
+              "lineHeight": 1.5,
+              "fontFamily": "Geist",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "q1fkCO",
+              "name": "Paragraph 3",
+              "fill": "$foreground-secondary",
+              "content": "I have also developed reusable parent-theme architectures for the University of Hawaii and contributed to the ePib framework standard for the Barnes & Noble Nook Color rollout. My graphics and 3D engineering experience spans Game Art training at Full Sail University to building real-time client-server physics orchestration using TypeScript and React within Roblox. My current focus includes implementing Model Context Protocol (MCP) servers and structuring developer automation tools.",
+              "lineHeight": 1.5,
+              "fontFamily": "Geist",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "k9x7y6",
+          "name": "Mobile Footer",
+          "width": "fill_container",
+          "stroke": "$border-subtle",
+          "strokeWidth": {
+            "top": 1
+          },
+          "layout": "vertical",
+          "gap": 20,
+          "padding": [
+            24,
+            0
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "RjNTl",
+              "name": "Mobile Copyright",
+              "fill": "$foreground-secondary",
+              "content": "© 2026 JOEL STRANSKY. ALL RIGHTS RESERVED.",
+              "fontFamily": "Space Grotesk",
+              "fontSize": 9,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "i07gA",
+              "name": "Mobile Links",
+              "gap": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "H4MsKw",
+                  "name": "GitHub Link",
+                  "width": 18,
+                  "height": 18,
+                  "icon": "github",
+                  "library": "lucide",
+                  "fill": "$foreground-secondary"
+                },
+                {
+                  "type": "icon",
+                  "id": "qarJ9",
+                  "name": "LinkedIn Link",
+                  "width": 18,
+                  "height": 18,
+                  "icon": "linkedin",
+                  "library": "lucide",
+                  "fill": "$foreground-secondary"
+                },
+                {
+                  "type": "icon",
+                  "id": "DZKgi",
+                  "name": "Twitter Link",
+                  "width": 18,
+                  "height": 18,
+                  "icon": "twitter",
+                  "library": "lucide",
+                  "fill": "$foreground-secondary"
+                },
+                {
+                  "type": "rectangle",
+                  "id": "B2sfVW",
+                  "name": "Nav Divider",
+                  "fill": "$border-subtle",
+                  "width": 1,
+                  "height": 14
+                },
+                {
+                  "type": "text",
+                  "id": "zyZLL",
+                  "name": "Link CV",
+                  "fill": "$foreground-secondary",
+                  "content": "CV",
+                  "fontFamily": "Space Grotesk",
                   "fontSize": 9,
                   "fontWeight": "normal"
                 }
@@ -7840,7 +8395,7 @@
           }
         },
         {
-          "value": "#e9e6fb",
+          "value": "transparent",
           "theme": {
             "mode": "serif"
           }
