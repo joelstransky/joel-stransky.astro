@@ -10,7 +10,9 @@ import embeds from 'astro-embed/integration';
 export default defineConfig({
   integrations: [react(), tailwind(), embeds(), mdx()],
   output: "static",
-  adapter: netlify(),
+  adapter: netlify({
+    imageCDN: false,
+  }),
   server: {
     routes: {
       "/.well-known/atproto-did": "./src/pages/.well-known/atproto-did.astro",
