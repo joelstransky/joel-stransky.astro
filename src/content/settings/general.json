@@ -1,8 +1,8 @@
 {
-  "title": "Joel Stransky",
-  "description": "Minimal portfolio template",
+  "title": "Joel Stransky | Senior Software Engineer",
+  "description": "Senior developer specializing in performance, accessibility, and scale with 15+ years producing enterprise software across Node.js, .NET, React, and TypeScript.",
   "base_url": "/",
-  "keywords": ["astro", "template"],
+  "keywords": ["Senior Software Engineer", "React", "TypeScript", "Node.js", ".NET", "Accessibility", "WCAG", "Performance", "UI/UX"],
   "logo": "assets/m.png",
   "favicon": "assets/m_w.png",
   "url": "/",
@@ -10,8 +10,7 @@
     {
       "target": "_blank",
       "name": "&#120143;",
-      "link": "httpS://twitter.com/joelstransky"
+      "link": "https://twitter.com/joelstransky"
     }
-    
   ]
 }
