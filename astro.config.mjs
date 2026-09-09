@@ -14,8 +14,14 @@ export default defineConfig({
     imageCDN: false,
   }),
   server: {
+    host: true,
     routes: {
       "/.well-known/atproto-did": "./src/pages/.well-known/atproto-did.astro",
+    },
+  },
+  vite: {
+    server: {
+      allowedHosts: true,
     },
   },
 });
