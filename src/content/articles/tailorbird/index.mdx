@@ -1,0 +1,165 @@
+---
+title: "Tailorbird: Building a Native Rust Desktop Browser for Streamlined Job Applications and Local AI Automation"
+date: 2026-10-29
+description: "How I engineered a specialized dual-pane desktop browser in Rust with Tao and Wry, featuring smart ATS autofill, built-in application tracking, and native Model Context Protocol (MCP) agent control."
+image: 'assets/tailorbird/cover.png'
+tag: [Rust, Desktop App, Wry & Tao, Model Context Protocol, Productivity]
+layoutType: article
+---
+
+import { Image } from 'astro:assets';
+import dualPaneImg from '../../../assets/tailorbird/dual-pane-workspace.png';
+import autofillImg from '../../../assets/tailorbird/one-click-auto-fill.png';
+import pipelineImg from '../../../assets/tailorbird/prospects-pipeline.png';
+import settingsImg from '../../../assets/tailorbird/settings.png';
+
+Applying for jobs in tech has become a fragmented, high-friction chore. Job seekers juggle dozens of open browser tabs, cross-reference external spreadsheets, and repeatedly copy-paste the exact same career history into non-standard applicant tracking systems (ATS).
+
+Earlier this year, I developed **JobForm AutoFill** as a browser extension to automate form completion on portals like Greenhouse and Lever. But as application architectures grew more complex—with nested iframes, aggressive cross-origin restrictions, and dynamic React component wrappers—the limits of a guest browser extension became painfully obvious. Extensions live at the mercy of the host browser's permission model and tab isolation boundaries.
+
+To solve this fundamentally, I took a step back and asked: *What if the browser itself was designed specifically for the job search?*
+
+The result is **Tailorbird**, an open-source, specialized dual-pane desktop application built from scratch in **Rust** using **Tao** and **Wry**. It consolidates candidate profile management, intelligent 1-click ATS form autofill, an application pipeline tracker, and a local **Model Context Protocol (MCP)** server into a single, private workflow.
+
+<div class="my-8 flex justify-center">
+  <div class="max-w-3xl rounded border border-border-subtle bg-surface-secondary overflow-hidden p-2">
+    <Image 
+      src={dualPaneImg} 
+      alt="Tailorbird Dual-Pane Workspace Interface" 
+      class="object-cover rounded w-full h-auto"
+    />
+    <p class="text-xs text-foreground-secondary text-center mt-2 font-sans">
+      Figure 1: Tailorbird's split-screen cockpit puts your candidate credentials, notes, and pipeline right next to active career portals.
+    </p>
+  </div>
+</div>
+
+## Architecture: Why Rust, Tao, and Wry?
+
+When evaluating frameworks for a specialized desktop browser, heavy runtimes like Electron were non-starters. Bundling an entire Chromium distribution and Node.js binary results in high memory consumption and slow cold boot times—especially wasteful for a focused utility intended to run alongside resource-heavy IDEs and dev tools.
+
+I selected a lightweight native stack powered by **Rust**:
+
+*   **Tao**: A cross-platform window management library that handles window creation, global menu bars, keyboard accelerators, and system-level event loops without runtime bloat.
+*   **Wry**: A cross-platform webview rendering library that ties directly into the operating system's native engine (WebView2 on Windows, WebKit on macOS, and WebKitGTK on Linux).
+*   **Zero-Overhead IPC**: Bidirectional messaging between the left-hand cockpit UI and the right-hand webview browser runs through native inter-process communication rather than an internal HTTP loop.
+
+This architecture keeps the release installer compact and delivers instantaneous launch times with minimal background RAM usage.
+
+## The Dual-Pane Workspace
+
+Tailorbird replaces the chaotic dance between job boards, resume PDFs, and spreadsheets with a synchronized split-screen interface:
+
+1.  **The Left Cockpit**: Contains your master candidate profile, complete work history, education records, tailored QA snippets, job search filters, and prospective application pipeline.
+2.  **The Right Browser**: A full-featured web browser with tab management, back/forward navigation, history, bookmarking, and native rendering for any employer's hiring portal.
+3.  **Adjustable Divider**: The split layout is freely resizable, remembering your exact preferred proportions across sessions.
+
+Having your career achievements, metrics, and portfolio links persistently visible directly beside an application eliminates context switching and ensures you never have to hunt for a bullet point.
+
+<div class="my-8 flex justify-center">
+  <div class="max-w-2xl rounded border border-border-subtle bg-surface-secondary overflow-hidden p-2">
+    <Image 
+      src={autofillImg} 
+      alt="1-Click ATS Form Autofill Demonstration" 
+      class="object-cover rounded w-full h-auto"
+    />
+    <p class="text-xs text-foreground-secondary text-center mt-2 font-sans">
+      Figure 2: 1-Click Autofill interrogates custom select wrappers, textareas, and demographic inputs across top ATS platforms.
+    </p>
+  </div>
+</div>
+
+## Intelligent 1-Click ATS Form Autofill
+
+Modern ATS platforms rarely use plain HTML `<select>` or standard `<input>` elements. Instead, they wrap inputs in custom styled components that require synthetic keyboard and pointer events to register changes in state stores like Redux or Zustand.
+
+Tailorbird executes deep DOM traversal scripts specifically calibrated for major hiring platforms, including:
+
+*   **Greenhouse**
+*   **Lever**
+*   **Ashby**
+*   **Workday**
+*   **Rippling**
+*   **Workable**
+*   **SmartRecruiters**
+*   **BambooHR**
+*   **iCIMS**
+
+When clicking **1-Click Fill**, Tailorbird resolves field types, dispatches simulated user interaction events, and highlights remaining optional or custom questions in amber so applicants can review and verify before submitting. In accordance with strict ethical job-seeking standards, the software never automatically submits applications; it prepares the form and puts the human in full control.
+
+<div class="my-8 flex justify-center">
+  <div class="max-w-2xl rounded border border-border-subtle bg-surface-secondary overflow-hidden p-2">
+    <Image 
+      src={pipelineImg} 
+      alt="Tailorbird Prospects Pipeline Tracker" 
+      class="object-cover rounded w-full h-auto"
+    />
+    <p class="text-xs text-foreground-secondary text-center mt-2 font-sans">
+      Figure 3: Save job listings instantly with keyboard shortcuts and advance them through custom pipeline stages.
+    </p>
+  </div>
+</div>
+
+## Built-In Prospects Pipeline & Outreach Tracker
+
+Tracking applications in standalone sheets quickly goes stale. In Tailorbird, saving an opportunity is immediate:
+
+*   **1-Click Capture**: Hitting <kbd>Ctrl/Cmd</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd> captures the active page title, company name, and posting URL directly into your **Prospects Pipeline**.
+*   **Stage Progression**: Drag or transition applications across key milestones (*Bookmarked*, *Applied*, *Screening*, *Interviewing*, *Offer*, *Archived*).
+*   **Outreach Roster**: Keep a curated index of recruiters, hiring managers, and networking contacts with customized intro templates ready to paste.
+*   **CSV Export**: Full pipeline data can be exported to CSV at any moment with no platform lock-in.
+
+## AI Agent Integration via Model Context Protocol (MCP)
+
+One of Tailorbird's most powerful capabilities is its native **Model Context Protocol (MCP)** server. 
+
+Rather than requiring users to manually copy-paste resume data back and forth to ChatGPT or Claude, Tailorbird runs an embedded local MCP server listening strictly over loopback at `http://127.0.0.1:42427/mcp`.
+
+This enables any MCP-compatible AI coding or chat tool—such as **Claude Desktop**, **Cursor**, **Windsurf**, **Antigravity**, **VS Code**, or **OpenCode**—to interact directly with your candidate workspace:
+
+```json
+{
+  "mcpServers": {
+    "tailorbird": {
+      "url": "http://127.0.0.1:42427/mcp"
+    }
+  }
+}
+```
+
+Through tools like `get_tailorbird_data`, `add_prospect`, `set_work_history`, and `update_prospect_status`, your AI agent can:
+
+*   Analyze a job description currently loaded in your browser and tailor custom bullet points.
+*   Automatically log newly discovered roles directly into your pipeline with notes and priority tags.
+*   Draft customized outreach pitches based on target company values.
+
+### Safety and 1-Click Snapshot Rollbacks
+
+Allowing AI assistants to update your resume and pipeline requires safeguards. Tailorbird implements an automatic pre-write state snapshot engine: every single change initiated by an MCP agent creates an immediate backup in memory. If an agent hallucinates or makes unwanted modifications, clicking the **Undo** action in the app instantly restores the workspace to its exact prior state.
+
+<div class="my-8 flex justify-center">
+  <div class="max-w-2xl rounded border border-border-subtle bg-surface-secondary overflow-hidden p-2">
+    <Image 
+      src={settingsImg} 
+      alt="Tailorbird Settings and Personalization" 
+      class="object-cover rounded w-full h-auto"
+    />
+    <p class="text-xs text-foreground-secondary text-center mt-2 font-sans">
+      Figure 4: Tailorbird features offline-first local JSON storage, customizable accent themes, and integrated MCP server controls.
+    </p>
+  </div>
+</div>
+
+## 100% Offline-First and Private
+
+Career search data is deeply personal. Tailorbird was engineered with strict privacy principles:
+
+*   **No Cloud Accounts or Telemetry**: Zero user accounts, logins, or tracking pixels.
+*   **Local Storage**: All profile records, work histories, tracked listings, and settings are stored locally in plain `tailorbird_data.json`.
+*   **Air-Gapped Boundaries**: The MCP server is strictly bound to `127.0.0.1`, guaranteeing that data remains entirely on the user's local machine.
+
+## Summary
+
+Tailorbird demonstrates how rethinking common web workflows as specialized, native desktop applications can eliminate repetitive digital friction. By blending Rust's native performance, smart DOM interrogation, and modern AI interoperability via MCP, it transforms the job application grind into an organized, empowered command center.
+
+Tailorbird is open source and available for Windows, macOS, and Linux on [GitHub](https://github.com/joelstransky/Tailorbird).
