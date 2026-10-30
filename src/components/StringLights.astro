@@ -1,0 +1,496 @@
+---
+// StringLights.astro
+// Re-usable decorative festive string lights that droop naturally around cards or containers
+// Spooky Halloween blink patterns: mostly off, occasional erratic flickers/pulses, never all off.
+
+interface Props {
+  mode?: 'full' | 'top';
+  showAlways?: boolean;
+  class?: string;
+  className?: string;
+}
+
+const {
+  mode = 'full',
+  showAlways = false,
+  class: propClass = '',
+  className = '',
+} = Astro.props;
+
+const customClass = propClass || className;
+
+// Halloween Theme Palette: ONLY Orange, Purple, Yellow
+const ORANGE = { color: '#ff7518', glow: 'rgba(255, 117, 24, 0.95)' };
+const PURPLE = { color: '#b026ff', glow: 'rgba(176, 38, 255, 0.95)' };
+const YELLOW = { color: '#ffd000', glow: 'rgba(255, 208, 0, 0.95)' };
+
+// Bulb configurations with 6 distinct desynchronized blink patterns.
+// Patterns 1-4 and 6 are mostly dark (85-90% off) with occasional flickers.
+// Pattern 5 (beacon) maintains a low resting ember/glow so the string is never all off.
+const topBulbs = [
+  { ...PURPLE, anim: '1', delay: '0.4s', left: '17%' },
+  { ...YELLOW, anim: '5', delay: '0s', left: '50%' }, // Lone beacon - keeps top glowing
+  { ...ORANGE, anim: '3', delay: '2.1s', left: '83%' },
+];
+
+const bottomBulbs = [
+  { ...PURPLE, anim: '6', delay: '4.8s', left: '17%' },
+  { ...ORANGE, anim: '5', delay: '2.7s', left: '50%' }, // Lone beacon - keeps bottom glowing
+  { ...YELLOW, anim: '1', delay: '5.3s', left: '83%' },
+];
+
+const leftBulbs = [
+  { ...PURPLE, anim: '4', delay: '0.9s', top: '28%' },
+  { ...ORANGE, anim: '2', delay: '4.1s', top: '72%' },
+];
+
+const rightBulbs = [
+  { ...YELLOW, anim: '2', delay: '3.6s', top: '28%' },
+  { ...ORANGE, anim: '4', delay: '1.2s', top: '72%' },
+];
+
+const cornerBulbs = [
+  // Top Left: Orange
+  { ...ORANGE, anim: '3', delay: '1.5s', pos: '-top-3 -left-3 rotate-[-35deg]' },
+  // Top Right: Purple
+  { ...PURPLE, anim: '6', delay: '0.7s', pos: '-top-3 -right-3 rotate-[35deg]' },
+  // Bottom Left: Yellow
+  { ...YELLOW, anim: '1', delay: '3.1s', pos: '-bottom-3 -left-3 rotate-[-145deg]' },
+  // Bottom Right: Purple
+  { ...PURPLE, anim: '2', delay: '6.0s', pos: '-bottom-3 -right-3 rotate-[145deg]' },
+];
+---
+
+<div class={`relative string-lights-wrapper ${customClass}`}>
+  <!-- Wrapped content (e.g. Card) -->
+  <slot />
+
+  <!-- String Lights Overlay -->
+  <div class={`string-lights-overlay pointer-events-none absolute inset-0 z-20 overflow-visible ${showAlways ? 'show-always' : ''}`} aria-hidden="true">
+    
+    <!-- TOP STRAND: Naturally drooping wire across top -->
+    <div class="absolute -top-3 left-0 right-0 h-8">
+      <svg class="w-full h-full overflow-visible" preserveAspectRatio="none" viewBox="0 0 100 24">
+        <path
+          d="M 0 5 Q 16 22 33 8 Q 50 22 67 8 Q 83 22 100 5"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          vector-effect="non-scaling-stroke"
+          stroke-linecap="round"
+          class="text-neutral-900 dark:text-neutral-800"
+        />
+      </svg>
+      {topBulbs.map((bulb) => (
+        <div
+          class="absolute -translate-x-1/2 flex flex-col items-center"
+          style={{ left: bulb.left, top: '10px' }}
+        >
+          <!-- Socket -->
+          <div class="w-2 h-1.5 bg-neutral-900 dark:bg-black rounded-t-[1px] border-t border-neutral-700"></div>
+          <!-- Bulb with Halo -->
+          <div
+            class={`c9-bulb bulb-anim-${bulb.anim} relative w-3.5 h-5 flex items-center justify-center`}
+            style={{
+              '--bulb-color': bulb.color,
+              '--bulb-glow': bulb.glow,
+              animationDelay: bulb.delay,
+            }}
+          >
+            <div class="c9-ambient"></div>
+            <svg viewBox="0 0 14 22" class="w-full h-full drop-shadow-sm">
+              <path d="M 4 2 C 2 5, 1 10, 2 14 C 3 17, 5 20, 7 22 C 9 20, 11 17, 12 14 C 13 10, 12 5, 10 2 Z" fill={bulb.color} />
+              <!-- Specular glass highlight -->
+              <path d="M 4 4 C 3 7, 3 11, 4 14" stroke="rgba(255,255,255,0.7)" stroke-width="1.2" stroke-linecap="round" fill="none" />
+              <!-- Inner filament glow -->
+              <ellipse cx="7" cy="11" rx="1.5" ry="3.5" fill="#ffffff" opacity="0.65" />
+            </svg>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    {mode === 'full' && (
+      <>
+        <!-- BOTTOM STRAND: Naturally drooping wire across bottom -->
+        <div class="absolute -bottom-3 left-0 right-0 h-8">
+          <svg class="w-full h-full overflow-visible" preserveAspectRatio="none" viewBox="0 0 100 24">
+            <path
+              d="M 0 5 Q 16 22 33 8 Q 50 22 67 8 Q 83 22 100 5"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              vector-effect="non-scaling-stroke"
+              stroke-linecap="round"
+              class="text-neutral-900 dark:text-neutral-800"
+            />
+          </svg>
+          {bottomBulbs.map((bulb) => (
+            <div
+              class="absolute -translate-x-1/2 flex flex-col items-center"
+              style={{ left: bulb.left, top: '10px' }}
+            >
+              <div class="w-2 h-1.5 bg-neutral-900 dark:bg-black rounded-t-[1px] border-t border-neutral-700"></div>
+              <div
+                class={`c9-bulb bulb-anim-${bulb.anim} relative w-3.5 h-5 flex items-center justify-center`}
+                style={{
+                  '--bulb-color': bulb.color,
+                  '--bulb-glow': bulb.glow,
+                  animationDelay: bulb.delay,
+                }}
+              >
+                <div class="c9-ambient"></div>
+                <svg viewBox="0 0 14 22" class="w-full h-full drop-shadow-sm">
+                  <path d="M 4 2 C 2 5, 1 10, 2 14 C 3 17, 5 20, 7 22 C 9 20, 11 17, 12 14 C 13 10, 12 5, 10 2 Z" fill={bulb.color} />
+                  <path d="M 4 4 C 3 7, 3 11, 4 14" stroke="rgba(255,255,255,0.7)" stroke-width="1.2" stroke-linecap="round" fill="none" />
+                  <ellipse cx="7" cy="11" rx="1.5" ry="3.5" fill="#ffffff" opacity="0.65" />
+                </svg>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <!-- LEFT STRAND: Wire curving along left side -->
+        <div class="absolute top-0 bottom-0 -left-3 w-8">
+          <svg class="w-full h-full overflow-visible" preserveAspectRatio="none" viewBox="0 0 24 100">
+            <path
+              d="M 19 0 Q 3 25 16 50 Q 3 75 19 100"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              vector-effect="non-scaling-stroke"
+              stroke-linecap="round"
+              class="text-neutral-900 dark:text-neutral-800"
+            />
+          </svg>
+          {leftBulbs.map((bulb) => (
+            <div
+              class="absolute -translate-y-1/2 flex flex-col items-center rotate-[-90deg]"
+              style={{ top: bulb.top, left: '2px' }}
+            >
+              <div class="w-2 h-1.5 bg-neutral-900 dark:bg-black rounded-t-[1px] border-t border-neutral-700"></div>
+              <div
+                class={`c9-bulb bulb-anim-${bulb.anim} relative w-3.5 h-5 flex items-center justify-center`}
+                style={{
+                  '--bulb-color': bulb.color,
+                  '--bulb-glow': bulb.glow,
+                  animationDelay: bulb.delay,
+                }}
+              >
+                <div class="c9-ambient"></div>
+                <svg viewBox="0 0 14 22" class="w-full h-full drop-shadow-sm">
+                  <path d="M 4 2 C 2 5, 1 10, 2 14 C 3 17, 5 20, 7 22 C 9 20, 11 17, 12 14 C 13 10, 12 5, 10 2 Z" fill={bulb.color} />
+                  <path d="M 4 4 C 3 7, 3 11, 4 14" stroke="rgba(255,255,255,0.7)" stroke-width="1.2" stroke-linecap="round" fill="none" />
+                  <ellipse cx="7" cy="11" rx="1.5" ry="3.5" fill="#ffffff" opacity="0.65" />
+                </svg>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <!-- RIGHT STRAND: Wire curving along right side -->
+        <div class="absolute top-0 bottom-0 -right-3 w-8">
+          <svg class="w-full h-full overflow-visible" preserveAspectRatio="none" viewBox="0 0 24 100">
+            <path
+              d="M 5 0 Q 21 25 8 50 Q 21 75 5 100"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              vector-effect="non-scaling-stroke"
+              stroke-linecap="round"
+              class="text-neutral-900 dark:text-neutral-800"
+            />
+          </svg>
+          {rightBulbs.map((bulb) => (
+            <div
+              class="absolute -translate-y-1/2 flex flex-col items-center rotate-[90deg]"
+              style={{ top: bulb.top, right: '2px' }}
+            >
+              <div class="w-2 h-1.5 bg-neutral-900 dark:bg-black rounded-t-[1px] border-t border-neutral-700"></div>
+              <div
+                class={`c9-bulb bulb-anim-${bulb.anim} relative w-3.5 h-5 flex items-center justify-center`}
+                style={{
+                  '--bulb-color': bulb.color,
+                  '--bulb-glow': bulb.glow,
+                  animationDelay: bulb.delay,
+                }}
+              >
+                <div class="c9-ambient"></div>
+                <svg viewBox="0 0 14 22" class="w-full h-full drop-shadow-sm">
+                  <path d="M 4 2 C 2 5, 1 10, 2 14 C 3 17, 5 20, 7 22 C 9 20, 11 17, 12 14 C 13 10, 12 5, 10 2 Z" fill={bulb.color} />
+                  <path d="M 4 4 C 3 7, 3 11, 4 14" stroke="rgba(255,255,255,0.7)" stroke-width="1.2" stroke-linecap="round" fill="none" />
+                  <ellipse cx="7" cy="11" rx="1.5" ry="3.5" fill="#ffffff" opacity="0.65" />
+                </svg>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <!-- 4 CORNER BULBS: Anchoring the frame loops -->
+        {cornerBulbs.map((bulb) => (
+          <div class={`absolute ${bulb.pos} flex flex-col items-center`}>
+            <div class="w-2 h-1.5 bg-neutral-900 dark:bg-black rounded-t-[1px] border-t border-neutral-700"></div>
+            <div
+              class={`c9-bulb bulb-anim-${bulb.anim} relative w-3.5 h-5 flex items-center justify-center`}
+              style={{
+                '--bulb-color': bulb.color,
+                '--bulb-glow': bulb.glow,
+                animationDelay: bulb.delay,
+              }}
+            >
+              <div class="c9-ambient"></div>
+              <svg viewBox="0 0 14 22" class="w-full h-full drop-shadow-sm">
+                <path d="M 4 2 C 2 5, 1 10, 2 14 C 3 17, 5 20, 7 22 C 9 20, 11 17, 12 14 C 13 10, 12 5, 10 2 Z" fill={bulb.color} />
+                <path d="M 4 4 C 3 7, 3 11, 4 14" stroke="rgba(255,255,255,0.7)" stroke-width="1.2" stroke-linecap="round" fill="none" />
+                <ellipse cx="7" cy="11" rx="1.5" ry="3.5" fill="#ffffff" opacity="0.65" />
+              </svg>
+            </div>
+          </div>
+        ))}
+      </>
+    )}
+  </div>
+</div>
+
+<style>
+  /* By default, string lights only appear when [data-subtheme="halloween"] is active */
+  .string-lights-overlay {
+    display: none;
+  }
+
+  :global(html[data-subtheme="halloween"]) .string-lights-overlay,
+  .string-lights-overlay.show-always {
+    display: block;
+  }
+
+  /* Ambient radial glow halo around each bulb */
+  .c9-ambient {
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    border-radius: 9999px;
+    background: radial-gradient(circle, var(--bulb-glow) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0.75;
+  }
+
+  /* Resting state: mostly off, faint resting silhouette in shadows */
+  .c9-bulb {
+    opacity: 0.14;
+    filter: drop-shadow(0 0 0px transparent);
+    transition: opacity 0.2s ease, filter 0.2s ease;
+  }
+
+  /* -------------------------------------------------------------------------
+     Spooky Halloween Blink Patterns:
+     - Bulbs are off/dim 85-90% of the time.
+     - Occasional flickers, bursts, double-blinks and stutters occur asynchronously.
+     - Pattern 5 (beacon) stays in a low simmer (30%) so the string never goes 100% dark.
+     ------------------------------------------------------------------------- */
+
+  /* 1. Quick sudden flicker (Cycle: 6.2s) - Active only ~9% of cycle */
+  @keyframes bulb-haunt-flicker {
+    0%, 15% {
+      opacity: 0.14;
+      filter: drop-shadow(0 0 0px transparent);
+      transform: scale(0.97);
+    }
+    16% {
+      opacity: 0.85;
+      filter: drop-shadow(0 0 6px var(--bulb-color)) drop-shadow(0 0 12px var(--bulb-glow));
+    }
+    17% {
+      opacity: 0.22;
+      filter: drop-shadow(0 0 1px var(--bulb-color));
+    }
+    18.5%, 23% {
+      opacity: 1;
+      filter: drop-shadow(0 0 8px var(--bulb-color)) drop-shadow(0 0 18px var(--bulb-glow));
+      transform: scale(1.04);
+    }
+    25% {
+      opacity: 0.35;
+      filter: drop-shadow(0 0 2px var(--bulb-color));
+    }
+    27%, 100% {
+      opacity: 0.14;
+      filter: drop-shadow(0 0 0px transparent);
+      transform: scale(0.97);
+    }
+  }
+
+  /* 2. Slow breathing pulse (Cycle: 7.5s) - Active only ~14% of cycle */
+  @keyframes bulb-haunt-pulse {
+    0%, 38% {
+      opacity: 0.14;
+      filter: drop-shadow(0 0 0px transparent);
+      transform: scale(0.97);
+    }
+    43% {
+      opacity: 0.75;
+      filter: drop-shadow(0 0 5px var(--bulb-color)) drop-shadow(0 0 10px var(--bulb-glow));
+    }
+    48%, 51% {
+      opacity: 1;
+      filter: drop-shadow(0 0 8px var(--bulb-color)) drop-shadow(0 0 18px var(--bulb-glow));
+      transform: scale(1.04);
+    }
+    55% {
+      opacity: 0.45;
+      filter: drop-shadow(0 0 3px var(--bulb-color));
+    }
+    58%, 100% {
+      opacity: 0.14;
+      filter: drop-shadow(0 0 0px transparent);
+      transform: scale(0.97);
+    }
+  }
+
+  /* 3. Double blink (Cycle: 8.8s) - Active only ~10% of cycle */
+  @keyframes bulb-haunt-double {
+    0%, 58% {
+      opacity: 0.14;
+      filter: drop-shadow(0 0 0px transparent);
+      transform: scale(0.97);
+    }
+    60% {
+      opacity: 1;
+      filter: drop-shadow(0 0 8px var(--bulb-color)) drop-shadow(0 0 16px var(--bulb-glow));
+      transform: scale(1.03);
+    }
+    62% {
+      opacity: 0.18;
+      filter: drop-shadow(0 0 0px transparent);
+    }
+    64%, 67% {
+      opacity: 1;
+      filter: drop-shadow(0 0 9px var(--bulb-color)) drop-shadow(0 0 20px var(--bulb-glow));
+      transform: scale(1.05);
+    }
+    70% {
+      opacity: 0.35;
+      filter: drop-shadow(0 0 2px var(--bulb-color));
+    }
+    72%, 100% {
+      opacity: 0.14;
+      filter: drop-shadow(0 0 0px transparent);
+      transform: scale(0.97);
+    }
+  }
+
+  /* 4. Electrical stutter (Cycle: 9.6s) - Active only ~11% of cycle */
+  @keyframes bulb-haunt-stutter {
+    0%, 26% {
+      opacity: 0.14;
+      filter: drop-shadow(0 0 0px transparent);
+      transform: scale(0.97);
+    }
+    27% {
+      opacity: 0.9;
+      filter: drop-shadow(0 0 6px var(--bulb-color)) drop-shadow(0 0 12px var(--bulb-glow));
+    }
+    28% {
+      opacity: 0.2;
+      filter: drop-shadow(0 0 1px var(--bulb-color));
+    }
+    29.5% {
+      opacity: 1;
+      filter: drop-shadow(0 0 9px var(--bulb-color)) drop-shadow(0 0 18px var(--bulb-glow));
+      transform: scale(1.04);
+    }
+    31% {
+      opacity: 0.3;
+      filter: drop-shadow(0 0 1px var(--bulb-color));
+    }
+    32.5%, 35% {
+      opacity: 0.95;
+      filter: drop-shadow(0 0 7px var(--bulb-color)) drop-shadow(0 0 14px var(--bulb-glow));
+    }
+    38%, 100% {
+      opacity: 0.14;
+      filter: drop-shadow(0 0 0px transparent);
+      transform: scale(0.97);
+    }
+  }
+
+  /* 5. Lone beacon (Cycle: 5.4s) - Guarantees the strand is never completely dark */
+  @keyframes bulb-haunt-beacon {
+    0%, 15% {
+      opacity: 0.35;
+      filter: drop-shadow(0 0 3px var(--bulb-color)) drop-shadow(0 0 6px var(--bulb-glow));
+    }
+    18%, 24% {
+      opacity: 1;
+      filter: drop-shadow(0 0 8px var(--bulb-color)) drop-shadow(0 0 18px var(--bulb-glow));
+      transform: scale(1.04);
+    }
+    28%, 65% {
+      opacity: 0.38;
+      filter: drop-shadow(0 0 3px var(--bulb-color)) drop-shadow(0 0 7px var(--bulb-glow));
+    }
+    70%, 85% {
+      opacity: 0.24;
+      filter: drop-shadow(0 0 2px var(--bulb-color));
+    }
+    90%, 100% {
+      opacity: 0.35;
+      filter: drop-shadow(0 0 3px var(--bulb-color)) drop-shadow(0 0 6px var(--bulb-glow));
+    }
+  }
+
+  /* 6. Wandering spark (Cycle: 11.2s) - Long dormancy with sudden surprise blaze */
+  @keyframes bulb-haunt-spark {
+    0%, 78% {
+      opacity: 0.14;
+      filter: drop-shadow(0 0 0px transparent);
+      transform: scale(0.97);
+    }
+    80%, 83% {
+      opacity: 1;
+      filter: drop-shadow(0 0 9px var(--bulb-color)) drop-shadow(0 0 22px var(--bulb-glow));
+      transform: scale(1.06);
+    }
+    85% {
+      opacity: 0.5;
+      filter: drop-shadow(0 0 4px var(--bulb-color));
+    }
+    88%, 100% {
+      opacity: 0.14;
+      filter: drop-shadow(0 0 0px transparent);
+      transform: scale(0.97);
+    }
+  }
+
+  .bulb-anim-1 {
+    animation: bulb-haunt-flicker 6.2s ease-in-out infinite;
+  }
+  .bulb-anim-2 {
+    animation: bulb-haunt-pulse 7.5s ease-in-out infinite;
+  }
+  .bulb-anim-3 {
+    animation: bulb-haunt-double 8.8s ease-in-out infinite;
+  }
+  .bulb-anim-4 {
+    animation: bulb-haunt-stutter 9.6s ease-in-out infinite;
+  }
+  .bulb-anim-5 {
+    animation: bulb-haunt-beacon 5.4s ease-in-out infinite;
+  }
+  .bulb-anim-6 {
+    animation: bulb-haunt-spark 11.2s ease-in-out infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .bulb-anim-1,
+    .bulb-anim-2,
+    .bulb-anim-3,
+    .bulb-anim-4,
+    .bulb-anim-5,
+    .bulb-anim-6 {
+      animation: none !important;
+      opacity: 0.8 !important;
+      filter: drop-shadow(0 0 6px var(--bulb-color)) !important;
+    }
+  }
+</style>

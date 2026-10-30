@@ -1,0 +1,175 @@
+/* ==========================================================================
+   Halloween Sub-Theme
+   Extends and decorates the site for Halloween without altering base tokens.
+   Only active when [data-subtheme="halloween"] is present on <html>.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Theme Variables Override (Only active under data-subtheme="halloween")
+   -------------------------------------------------------------------------- */
+
+/* Light Mode Halloween: Spiced Autumn Harvest & Ghostly Parchment */
+html[data-subtheme="halloween"] {
+  --surface-primary: #faf5ee;
+  --surface-secondary: #f3e8db;
+  --surface-tertiary: #e8d8c6;
+  --surface-inverse: #190c25;
+
+  --foreground-primary: #1e1128;
+  --foreground-secondary: #5a4365;
+  --foreground-muted: #8e779c;
+  --foreground-inverse: #ffffff;
+
+  --border-primary: #dccebe;
+  --border-subtle: #eee2d5;
+  --border-card: #e06500;
+  --powder-blue: #e06500;
+
+  --accent-primary: #ff6b00;
+  --accent-secondary: #7e22ce;
+  --accent-tertiary: #c026d3;
+
+  --spooky-glow: 0 0 20px rgba(255, 107, 0, 0.28);
+  --web-opacity: 0.35;
+}
+
+/* Dark Mode Halloween: Midnight Crypt, Haunted Violet & Pumpkin Embers */
+html[data-subtheme="halloween"].dark {
+  --surface-primary: #0a0512;
+  --surface-secondary: #160c24;
+  --surface-tertiary: #221338;
+  --surface-inverse: #06030c;
+
+  --foreground-primary: #fff6e8;
+  --foreground-secondary: #d4c2e2;
+  --foreground-muted: #7d658f;
+  --foreground-inverse: #ffffff;
+
+  --border-primary: #381d5a;
+  --border-subtle: #271440;
+  --border-card: #ff7518;
+  --powder-blue: #ff7518;
+
+  --accent-primary: #ff7518;
+  --accent-secondary: #a855f7;
+  --accent-tertiary: #34d399;
+
+  --spooky-glow: 0 0 25px rgba(255, 117, 24, 0.45);
+  --web-opacity: 0.55;
+}
+
+/* --------------------------------------------------------------------------
+   2. Decorative Enhancements
+   -------------------------------------------------------------------------- */
+
+/* Spooky glowing hover on portfolio cards */
+html[data-subtheme="halloween"] figure:hover {
+  box-shadow: var(--spooky-glow);
+  border-color: var(--accent-primary) !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* Eerie subtle glow on headings and interactive links */
+html[data-subtheme="halloween"] h1,
+html[data-subtheme="halloween"] h2 {
+  text-shadow: 0 0 24px rgba(255, 117, 24, 0.15);
+}
+
+/* Halloween decoration elements visibility */
+.halloween-decoration {
+  display: none !important;
+}
+
+html[data-subtheme="halloween"] .halloween-decoration {
+  display: inline-block !important;
+}
+
+.halloween-layer {
+  display: none;
+  pointer-events: none;
+}
+
+html[data-subtheme="halloween"] .halloween-layer {
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   3. Animations
+   -------------------------------------------------------------------------- */
+
+@keyframes spider-sway {
+  0% {
+    transform: rotate(-6deg) translateY(0);
+  }
+  50% {
+    transform: rotate(6deg) translateY(6px);
+  }
+  100% {
+    transform: rotate(-6deg) translateY(0);
+  }
+}
+
+@keyframes ghost-drift {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-14px) translateX(8px) rotate(3deg);
+  }
+  66% {
+    transform: translateY(-6px) translateX(-6px) rotate(-2deg);
+  }
+}
+
+@keyframes bat-glide {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-18px, -10px) scale(0.96) rotate(-4deg);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+@keyframes jack-o-flicker {
+  0%, 100% {
+    filter: drop-shadow(0 0 5px rgba(255, 117, 24, 0.9)) drop-shadow(0 0 10px rgba(255, 165, 0, 0.5));
+  }
+  25% {
+    filter: drop-shadow(0 0 8px rgba(255, 117, 24, 1)) drop-shadow(0 0 14px rgba(255, 200, 0, 0.7));
+  }
+  50% {
+    filter: drop-shadow(0 0 4px rgba(255, 117, 24, 0.75)) drop-shadow(0 0 8px rgba(255, 140, 0, 0.4));
+  }
+  75% {
+    filter: drop-shadow(0 0 9px rgba(255, 117, 24, 1)) drop-shadow(0 0 16px rgba(255, 180, 0, 0.8));
+  }
+}
+
+.animate-spider {
+  transform-origin: top center;
+  animation: spider-sway 4s ease-in-out infinite alternate;
+}
+
+.animate-ghost {
+  animation: ghost-drift 7s ease-in-out infinite;
+}
+
+.animate-bat {
+  animation: bat-glide 6s ease-in-out infinite;
+}
+
+.animate-jack-flicker {
+  animation: jack-o-flicker 2.5s infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-spider,
+  .animate-ghost,
+  .animate-bat,
+  .animate-jack-flicker {
+    animation: none !important;
+  }
+}

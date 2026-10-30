@@ -4,6 +4,7 @@ import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
 import Hero from "../components/Hero.astro";
+import StringLights from "../components/StringLights.astro";
 import featuredImage from "../assets/edvisors/design-exploration-lender-cards2.png";
 
 const allArticles = await getCollection("articles");
@@ -76,6 +77,20 @@ const featuredArticle = articles.find(a => a.slug === "edvisors-design-explorati
         parseHex('#f2efff')  // 3D Modeling / Bottom (100%)
       ];
 
+      const halloweenDarkColors = [
+        parseHex('#0a0512'), // Top (Haunted crypt)
+        parseHex('#1e0c2e'), // App Eng (Witch violet)
+        parseHex('#241005'), // Design Eng (Pumpkin embers)
+        parseHex('#0d0515')  // 3D Modeling (Midnight gloom)
+      ];
+
+      const halloweenLightColors = [
+        parseHex('#faf5ee'), // Top (Ghostly parchment)
+        parseHex('#f8ebdc'), // App Eng (Spiced pumpkin)
+        parseHex('#f2e5f5'), // Design Eng (Phantom lavender)
+        parseHex('#fbf3e8')  // 3D Modeling (Autumn hearth)
+      ];
+
       const interpolateColors = (color1: number[], color2: number[], factor: number) => {
         const r = Math.round(color1[0] + (color2[0] - color1[0]) * factor);
         const g = Math.round(color1[1] + (color2[1] - color1[1]) * factor);
@@ -84,8 +99,12 @@ const featuredArticle = articles.find(a => a.slug === "edvisors-design-explorati
       };
 
       const updateBg = () => {
+        const isHalloween = document.documentElement.getAttribute('data-subtheme') === 'halloween';
         const isDark = document.documentElement.classList.contains('dark');
-        const colors = isDark ? darkColors : lightColors;
+        let colors = isDark ? darkColors : lightColors;
+        if (isHalloween) {
+          colors = isDark ? halloweenDarkColors : halloweenLightColors;
+        }
 
         const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
         if (maxScroll <= 0) return;
@@ -114,7 +133,7 @@ const featuredArticle = articles.find(a => a.slug === "edvisors-design-explorati
 
       const observer = new MutationObserver((mutations) => {
         mutations.forEach((mutation) => {
-          if (mutation.attributeName === 'class') {
+          if (mutation.attributeName === 'class' || mutation.attributeName === 'data-subtheme') {
             updateBg();
           }
         });
@@ -140,16 +159,18 @@ const featuredArticle = articles.find(a => a.slug === "edvisors-design-explorati
             </h2>
           </div>
           <div class="grid grid-cols-1 lg:grid-cols-2 portfolio gap-8">
-            <Card
-              index={1}
-              slug={featuredArticle.slug}
-              title={featuredArticle.data.title}
-              image={featuredImage}
-              tags={featuredArticle.data.tag}
-              body={featuredArticle.body}
-              section="design"
-              isFeatured={true}
-            />
+            <StringLights class="lg:col-span-2">
+              <Card
+                index={1}
+                slug={featuredArticle.slug}
+                title={featuredArticle.data.title}
+                image={featuredImage}
+                tags={featuredArticle.data.tag}
+                body={featuredArticle.body}
+                section="design"
+                isFeatured={true}
+              />
+            </StringLights>
           </div>
         </section>
       )}
@@ -165,15 +186,29 @@ const featuredArticle = articles.find(a => a.slug === "edvisors-design-explorati
           </div>
           <div class="grid grid-cols-1 lg:grid-cols-2 portfolio gap-8">
             {appArticles.map((article, index) => (
-              <Card
-                index={index + 1}
-                slug={article.slug}
-                title={article.data.title}
-                image={article.data.image}
-                tags={article.data.tag}
-                body={article.body}
-                section="app"
-              />
+              index === 0 ? (
+                <StringLights>
+                  <Card
+                    index={index + 1}
+                    slug={article.slug}
+                    title={article.data.title}
+                    image={article.data.image}
+                    tags={article.data.tag}
+                    body={article.body}
+                    section="app"
+                  />
+                </StringLights>
+              ) : (
+                <Card
+                  index={index + 1}
+                  slug={article.slug}
+                  title={article.data.title}
+                  image={article.data.image}
+                  tags={article.data.tag}
+                  body={article.body}
+                  section="app"
+                />
+              )
             ))}
           </div>
         </section>
@@ -190,15 +225,29 @@ const featuredArticle = articles.find(a => a.slug === "edvisors-design-explorati
           </div>
           <div class="grid grid-cols-1 lg:grid-cols-2 portfolio gap-8">
             {designArticles.map((article, index) => (
-              <Card
-                index={index + 1}
-                slug={article.slug}
-                title={article.data.title}
-                image={article.data.image}
-                tags={article.data.tag}
-                body={article.body}
-                section="design"
-              />
+              index === 0 ? (
+                <StringLights>
+                  <Card
+                    index={index + 1}
+                    slug={article.slug}
+                    title={article.data.title}
+                    image={article.data.image}
+                    tags={article.data.tag}
+                    body={article.body}
+                    section="design"
+                  />
+                </StringLights>
+              ) : (
+                <Card
+                  index={index + 1}
+                  slug={article.slug}
+                  title={article.data.title}
+                  image={article.data.image}
+                  tags={article.data.tag}
+                  body={article.body}
+                  section="design"
+                />
+              )
             ))}
           </div>
         </section>
