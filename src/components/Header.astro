@@ -7,9 +7,8 @@ const general = await getEntry('settings','general');
 <header class="w-full bg-surface-primary border-b border-border-subtle transition-colors duration-300">
   <div class="max-w-7xl mx-auto px-6 md:px-24 py-6 flex justify-between items-center">
     <!-- Logo -->
-    <a href="/" class="text-xl md:text-2xl font-serif font-bold text-foreground-primary tracking-wide inline-flex items-center gap-2">
+    <a href="/" class="text-xl md:text-2xl font-serif font-bold text-foreground-primary tracking-wide">
       JOEL STRANSKY
-      <span class="halloween-decoration text-lg md:text-xl select-none" title="Spooky Season" aria-hidden="true">🎃</span>
     </a>
 
     <!-- Right area (Desktop: visible, Mobile: hidden) -->
@@ -25,13 +24,6 @@ const general = await getEntry('settings','general');
         <a href="https://github.com/joelstransky" target="_blank" rel="noopener noreferrer" class="text-foreground-secondary hover:text-foreground-primary transition-colors" aria-label="GitHub">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
         </a>
-        <!-- Halloween Sub-theme Toggle -->
-        <button id="halloween-toggle" class="halloween-toggle text-foreground-secondary hover:text-[#ff7518] transition-colors focus:outline-none" aria-label="Toggle Halloween Theme" title="Toggle Halloween Sub-Theme">
-          <svg class="w-5 h-5 halloween-jack-icon" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2c.6 1.4 1.4 2.3 2 2.7-.8.2-1.6.3-2 .3s-1.2-.1-2-.3c.6-.4 1.4-1.3 2-2.7z" fill="#4a7c29"/>
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 5C7 5 3 8.2 3 13.5c0 5 4 8.5 9 8.5s9-3.5 9-8.5C21 8.2 17 5 12 5zm-3.5 6.2L10 13.5H7l1.5-2.3zm7 0l1.5 2.3h-3l1.5-2.3zM12 14.2l.9 1.4h-1.8l.9-1.4zm4.2 3c-1.1 1.6-2.8 2-4.2 2s-3.1-.4-4.2-2c1.3-.4 2.8-.5 4.2-.5s2.9.1 4.2.5z" />
-          </svg>
-        </button>
         <!-- Theme Toggle -->
         <button id="theme-toggle" class="text-foreground-secondary hover:text-foreground-primary transition-colors focus:outline-none" aria-label="Toggle Theme">
           <svg id="theme-toggle-light-icon" class="hidden dark:block" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
@@ -45,13 +37,6 @@ const general = await getEntry('settings','general');
       <a href="https://github.com/joelstransky" target="_blank" rel="noopener noreferrer" class="text-foreground-secondary hover:text-foreground-primary transition-colors" aria-label="GitHub">
         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
       </a>
-      <!-- Halloween Sub-theme Toggle (Mobile) -->
-      <button id="halloween-toggle-mobile" class="halloween-toggle text-foreground-secondary hover:text-[#ff7518] transition-colors focus:outline-none" aria-label="Toggle Halloween Theme" title="Toggle Halloween Sub-Theme">
-        <svg class="w-[18px] h-[18px] halloween-jack-icon" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 2c.6 1.4 1.4 2.3 2 2.7-.8.2-1.6.3-2 .3s-1.2-.1-2-.3c.6-.4 1.4-1.3 2-2.7z" fill="#4a7c29"/>
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M12 5C7 5 3 8.2 3 13.5c0 5 4 8.5 9 8.5s9-3.5 9-8.5C21 8.2 17 5 12 5zm-3.5 6.2L10 13.5H7l1.5-2.3zm7 0l1.5 2.3h-3l1.5-2.3zM12 14.2l.9 1.4h-1.8l.9-1.4zm4.2 3c-1.1 1.6-2.8 2-4.2 2s-3.1-.4-4.2-2c1.3-.4 2.8-.5 4.2-.5s2.9.1 4.2.5z" />
-        </svg>
-      </button>
       <button id="theme-toggle-mobile" class="text-foreground-secondary hover:text-foreground-primary transition-colors focus:outline-none" aria-label="Toggle Theme">
         <svg class="hidden dark:block" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
         <svg class="block dark:hidden" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
@@ -92,30 +77,6 @@ const general = await getEntry('settings','general');
           const isDark = document.documentElement.classList.toggle('dark');
           const newTheme = isDark ? 'dark' : 'light';
           document.cookie = `theme=${newTheme}; max-age=31536000; path=/; SameSite=Lax`;
-        });
-      }
-    });
-
-    // Halloween Sub-theme Toggle Functionality
-    const halloweenToggles = [
-      document.getElementById('halloween-toggle'),
-      document.getElementById('halloween-toggle-mobile')
-    ];
-
-    halloweenToggles.forEach(toggle => {
-      if (toggle) {
-        const clone = toggle.cloneNode(true);
-        toggle.replaceWith(clone);
-
-        clone.addEventListener('click', () => {
-          const isHalloween = document.documentElement.getAttribute('data-subtheme') === 'halloween';
-          if (isHalloween) {
-            document.documentElement.removeAttribute('data-subtheme');
-            document.cookie = 'subtheme=none; max-age=31536000; path=/; SameSite=Lax';
-          } else {
-            document.documentElement.setAttribute('data-subtheme', 'halloween');
-            document.cookie = 'subtheme=halloween; max-age=31536000; path=/; SameSite=Lax';
-          }
         });
       }
     });
